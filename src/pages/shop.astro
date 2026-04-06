@@ -36,7 +36,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               price={`$${orig.price}`}
               image={`${product.image}-card.jpg`}
               category={product.medium}
-              href={`#${product.slug}`}
+              href={`/shop/${product.slug}`}
               soldOut={!orig.available}
             />
           );
@@ -59,7 +59,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               price={`$${print.price}`}
               image={`${product.image}-card.jpg`}
               category={product.color || 'Print'}
-              href={`#${product.slug}`}
+              href={`/shop/${product.slug}`}
             />
           );
         })}
@@ -81,7 +81,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               price={`$${tee.price}`}
               image={`${product.image}-card.jpg`}
               category="Unisex"
-              href={`#${product.slug}`}
+              href={`/shop/${product.slug}`}
             />
           );
         })}
