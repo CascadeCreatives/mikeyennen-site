@@ -1,0 +1,260 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Mikey Ennen — Artist & Designer', description = 'Original artwork, prints, and apparel rooted in Pacific Northwest nature.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="/signature.png" alt="Mikey Ennen" class="logo-sig" />
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/shop" class:list={[{ active: currentPath.startsWith('/shop') }]}>Shop</a>
+        <a href="/about" class:list={[{ active: currentPath === '/about' }]}>About</a>
+        <a href="/process" class:list={[{ active: currentPath === '/process' }]}>Process</a>
+        <a href="/contact" class:list={[{ active: currentPath === '/contact' }]}>Contact</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======== MAIN ======== -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer section--dark">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">Mikey Ennen</span>
+        <p>Artist & Designer<br/>Pacific Northwest</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="/shop">Shop</a>
+          <a href="/about">About</a>
+          <a href="/process">Process</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="/contact">Contact</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Mikey Ennen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style is:global>
+    @import '../styles/global.css';
+  </style>
+
+  <style>
+    /* ---- Header ---- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(248, 247, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+
+    .logo-sig {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .main-nav a {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--charcoal);
+    }
+
+    .main-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1.5px;
+      background: var(--teal);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--charcoal);
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        position: fixed;
+        inset: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .main-nav.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .main-nav a {
+        font-size: 1.1rem;
+      }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ---- Footer ---- */
+    .site-footer {
+      padding: var(--space-xl) 0 var(--space-md);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer-brand .logo-name {
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--fog);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+      justify-self: end;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fog);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: var(--mist);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--teal); }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: var(--stone);
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-links { justify-self: start; }
+    }
+  </style>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+    toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  image: string;
+  category?: string;
+  href?: string;
+  soldOut?: boolean;
+}
+
+const { title, price, image, category, href = '#', soldOut = false } = Astro.props;
+---
+
+<a href={href} class="product-card">
+  <div class="product-card__image">
+    <div class="product-card__placeholder" style={`background-image: url(${image});`}>
+      {!image && <span>Artwork</span>}
+    </div>
+    {soldOut && <span class="product-card__badge">Sold</span>}
+  </div>
+  <div class="product-card__info">
+    {category && <span class="label">{category}</span>}
+    <h4 class="product-card__title">{title}</h4>
+    <span class="product-card__price">{price}</span>
+  </div>
+</a>
+
+<style>
+  .product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    group: product;
+  }
+
+  .product-card__image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--cloud);
+    margin-bottom: 1rem;
+  }
+
+  .product-card__placeholder {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card__placeholder span {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--fog);
+    font-style: italic;
+  }
+
+  .product-card:hover .product-card__placeholder {
+    transform: scale(1.04);
+  }
+
+  .product-card__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .product-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .product-card__title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+
+  .product-card__price {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--stone);
+  }
+</style>

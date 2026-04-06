@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CollectionCard from '../components/CollectionCard.astro';
+import products from '../data/products.json';
+
+const featured = products.filter((p: any) => p.featured);
+---
+
+<BaseLayout>
+
+  <!-- ════════ 1. HERO ════════ -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="/art/prints/ravens-dark-blue-hr-hero.jpg" alt="Moonlight Ravens — Woodcut Print by Mikey Ennen" class="hero__img" />
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <span class="label fade-up">Artist & Designer</span>
+      <h1 class="fade-up fade-up-d1">Mikey Ennen</h1>
+      <p class="hero__sub fade-up fade-up-d2">Original artwork, prints, and apparel rooted in the Pacific Northwest.</p>
+      <div class="hero__ctas fade-up fade-up-d3">
+        <a href="/shop" class="btn btn--primary">Shop the Collection</a>
+        <a href="/shop#originals" class="btn btn--outline-light">View Originals</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint"><span></span></div>
+  </section>
+
+  <!-- ════════ 2. BUY IN AT EVERY LEVEL ════════ -->
+  <section class="section tiers">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Buy In at Every Level</span>
+        <h2>From your wall to your wardrobe</h2>
+      </div>
+      <div class="grid-3 tiers__grid">
+        <CollectionCard title="Originals" description="One-of-a-kind pieces. Ink, charcoal, and woodcut on panel." image="/art/originals/ice-cave-card.jpg" tag="Starting at $440" href="/shop#originals" />
+        <CollectionCard title="Printed Art" description="Hand-pulled woodcut prints and archival giclées." image="/art/prints/mountain-treeline-teal-card.jpg" tag="Starting at $38" href="/shop#prints" />
+        <CollectionCard title="T-Shirts" description="Wearable art. Premium blanks, limited designs." image="/art/prints/sasquatch-green-card.jpg" tag="Starting at $28" href="/shop#apparel" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 3. FEATURED COLLECTION ════════ -->
+  <section class="section section--dark featured-collection">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Featured Work</span>
+        <h2>Pacific Northwest Collection</h2>
+        <p>Ravens, mountains, salmon, and shorelines — drawn from the landscapes of the San Juan Islands and beyond.</p>
+      </div>
+      <div class="featured-collection__scroll">
+        {featured.map((product: any) => {
+          const lowestPrice = Math.min(...product.formats.map((f: any) => f.price));
+          const topFormat = product.formats[0];
+          return (
+            <ProductCard
+              title={product.title}
+              price={product.formats.length > 1 ? `From $${lowestPrice}` : `$${topFormat.price}`}
+              image={`${product.image}-card.jpg`}
+              category={topFormat.type === 'original' ? 'Original' : topFormat.type === 'print' ? 'Print' : 'Tee'}
+              href={`/shop`}
+            />
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 4. ABOUT PREVIEW ════════ -->
+  <section class="section about-preview">
+    <div class="container grid-2 about-preview__grid">
+      <div class="about-preview__image">
+        <img src="/art/misc/mike-salmon-hero.jpg" alt="Mikey Ennen" class="about-preview__photo" />
+      </div>
+      <div class="about-preview__text">
+        <span class="label">About</span>
+        <h2>Art, nature, and the spaces between</h2>
+        <p>Mikey Ennen is an artist and designer based in the Pacific Northwest. His work draws from a life spent between mountains, water, and creative practice — from competitive athletics to architecture to the woodcut printmaking that defines his current body of work.</p>
+        <p>Every piece carries the textures and rhythms of the landscapes he moves through.</p>
+        <a href="/about" class="btn btn--ghost">Read More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 5. PROCESS PREVIEW ════════ -->
+  <section class="section section--dark process-preview">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Process</span>
+        <h2>From block to print</h2>
+      </div>
+      <div class="process-preview__grid">
+        <div class="process-step">
+          <div class="process-step__num">01</div>
+          <div class="process-step__image"><img src="/art/process/block-salmon-run-card.jpg" alt="Carved woodcut block" /></div>
+          <h4>Carving the Block</h4>
+          <p>Each piece starts as a hand-carved woodcut block. Hours of cutting define every line.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">02</div>
+          <div class="process-step__image"><img src="/art/process/block-mountain-treeline-card.jpg" alt="Finished woodcut block" /></div>
+          <h4>Inking & Proofing</h4>
+          <p>Blocks are inked by hand and pulled through the press. Each colorway is a separate pass.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">03</div>
+          <div class="process-step__image"><img src="/art/prints/mountain-treeline-teal-card.jpg" alt="Finished print" /></div>
+          <h4>The Finished Print</h4>
+          <p>Signed, numbered, and ready. Every print is a unique pull from the original block.</p>
+        </div>
+      </div>
+      <div class="process-preview__cta">
+        <a href="/process" class="btn btn--outline-light">See the Process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 6. FEATURED PRODUCTS ════════ -->
+  <section class="section featured-products">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Shop</span>
+        <h2>New & Noteworthy</h2>
+      </div>
+      <div class="grid-3">
+        <ProductCard title="Giant Pacific Octopus" price="From $34" image="/art/originals/octopus-painting-card.jpg" category="Original / Print / Tee" href="/shop" />
+        <ProductCard title="LBS — Blue I" price="From $32" image="/art/prints/lbs-blue-1-card.jpg" category="Print / Tee" href="/shop" />
+        <ProductCard title="Gravity — Rasta" price="From $32" image="/art/prints/gravity-rasta-card.jpg" category="Print / Tee" href="/shop" />
+      </div>
+      <div class="featured-products__cta">
+        <a href="/shop" class="btn btn--outline">Browse All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 7. CONTACT CTA ════════ -->
+  <section class="section section--dark contact-cta">
+    <div class="container contact-cta__inner">
+      <span class="label">Get in Touch</span>
+      <h2>Inquiries, commissions & collaborations</h2>
+      <p>Interested in an original piece? Have a licensing or collaboration idea? Just want to say hello?</p>
+      <a href="/contact" class="btn btn--primary" style="background: var(--teal);">Contact Mike</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding-bottom: var(--space-xl); overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; background: var(--black); }
+  .hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.55; }
+  .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.1) 50%); }
+  .hero__content { position: relative; z-index: 2; color: var(--white); }
+  .hero__content h1 { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; margin: 0.25rem 0 1rem; line-height: 1; letter-spacing: -0.02em; }
+  .hero__sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 2rem; max-width: 44ch; }
+  .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero__scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; }
+  .hero__scroll-hint span { display: block; width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3)); animation: scrollPulse 2s ease infinite; }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  .section-header { margin-bottom: var(--space-lg); }
+  .section-header h2 { margin-top: 0.5rem; }
+  .section-header p { margin-top: 0.75rem; }
+
+  .tiers__grid { gap: 1.5rem; }
+
+  .featured-collection__scroll { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .featured-collection__scroll > :global(*) { min-width: 260px; max-width: 280px; scroll-snap-align: start; flex-shrink: 0; }
+  .featured-collection__scroll :global(.product-card__image) { background: var(--graphite); }
+  .featured-collection__scroll :global(.product-card__title) { color: var(--white); }
+  .featured-collection__scroll :global(.product-card__price) { color: var(--fog); }
+
+  .about-preview__grid { align-items: center; gap: var(--space-lg); }
+  .about-preview__photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; }
+  .about-preview__text { display: flex; flex-direction: column; gap: 1rem; }
+  .about-preview__text .btn--ghost { align-self: flex-start; margin-top: 0.5rem; }
+
+  .process-preview__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+  .process-step { display: flex; flex-direction: column; gap: 0.75rem; }
+  .process-step__num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--teal); line-height: 1; }
+  .process-step__image { aspect-ratio: 16/10; overflow: hidden; background: var(--graphite); margin-bottom: 0.5rem; }
+  .process-step__image img { width: 100%; height: 100%; object-fit: cover; }
+  .process-step h4 { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); }
+  .process-step p { font-size: 0.85rem; color: var(--fog); }
+  .process-preview__cta { margin-top: var(--space-lg); text-align: center; }
+  @media (max-width: 768px) { .process-preview__grid { grid-template-columns: 1fr; } }
+
+  .featured-products__cta { text-align: center; margin-top: var(--space-lg); }
+
+  .contact-cta__inner { text-align: center; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .contact-cta__inner p { text-align: center; margin-bottom: 0.5rem; }
+</style>

@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Process — Mikey Ennen">
+
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <img src="/art/process/block-salmon-run-hero.jpg" alt="Woodcut block detail" class="page-hero__img" />
+    </div>
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="label">Process</span>
+      <h1>From Block to Print</h1>
+      <p>A look behind the work — carving, inking, pulling, and the finished piece.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- STEP 1: CARVING -->
+      <div class="process-block">
+        <div class="process-block__images">
+          <img src="/art/process/block-salmon-run-hero.jpg" alt="Carved woodcut block — Salmon Run" />
+          <img src="/art/process/block-mountain-treeline-hero.jpg" alt="Carved woodcut block — Mountain Treeline" />
+        </div>
+        <div class="process-block__text">
+          <span class="process-block__num">01</span>
+          <h2>Carving the Block</h2>
+          <p>Every piece begins as a raw wood panel. Mike draws directly onto the surface, then cuts away everything that won't hold ink. Hours of carving define every line, texture, and contour. The block itself becomes an object — a reverse-image sculpture of the final print.</p>
+          <p>Subjects come from direct observation: field sketches of ravens, salmon, mountains, and the shorelines of the San Juan Islands.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2: INKING -->
+      <div class="process-block process-block--reverse">
+        <div class="process-block__images">
+          <img src="/art/process/block-fishing-vessel-hero.jpg" alt="Carved block detail — Fishing Vessel" />
+          <img src="/art/process/block-skull-hero.jpg" alt="Carved block — Skull Study" />
+        </div>
+        <div class="process-block__text">
+          <span class="process-block__num">02</span>
+          <h2>Inking & Pulling</h2>
+          <p>The carved block is rolled with oil-based ink by hand — each color requires a separate pass through the press. Multi-color prints (like the Ravens or Mountain Treeline series) are built up layer by layer, each registration aligned by eye.</p>
+          <p>Every pull is unique. Variations in pressure, ink load, and paper texture make each print a one-of-a-kind object, even within a numbered edition.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3: FINISHED -->
+      <div class="process-block">
+        <div class="process-block__images">
+          <img src="/art/prints/mountain-treeline-teal-hero.jpg" alt="Mountain Treeline print — finished" />
+          <img src="/art/prints/ravens-dark-blue-hr-hero.jpg" alt="Moonlight Ravens print — finished" />
+        </div>
+        <div class="process-block__text">
+          <span class="process-block__num">03</span>
+          <h2>The Finished Print</h2>
+          <p>Each print is signed, titled, and numbered in pencil. Editions are small — typically 10 to 22 prints per colorway. Once an edition is sold out, it's gone.</p>
+          <p>Some blocks live on as originals — the Moonlight Ravens cedar panel, for example, is a finished artwork in its own right, separate from the prints it produces.</p>
+        </div>
+      </div>
+
+      <!-- STEP 4: COLORWAYS -->
+      <div class="process-block process-block--reverse">
+        <div class="process-block__images process-block__images--scroll">
+          <img src="/art/prints/ravens-dark-blue-hr-card.jpg" alt="Ravens — Dark Blue" />
+          <img src="/art/prints/ravens-dark-green-card.jpg" alt="Ravens — Dark Green" />
+          <img src="/art/prints/ravens-light-teal-card.jpg" alt="Ravens — Light Teal" />
+          <img src="/art/prints/ravens-light-blue-card.jpg" alt="Ravens — Light Blue" />
+        </div>
+        <div class="process-block__text">
+          <span class="process-block__num">04</span>
+          <h2>Colorways</h2>
+          <p>The same block can produce entirely different moods through color. The Moonlight Ravens block has been printed in dark blue, forest green, light teal, sky blue, and teal-on-cedar — each one a distinct edition with its own character.</p>
+          <p>Color choices are driven by the subject. Mountain pieces often pull from slate, teal, and fog. Nautical work goes deeper into blue and black.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" style="text-align: center;">
+    <div class="container" style="max-width: 600px;">
+      <span class="label">See the Results</span>
+      <h2 style="margin: 0.5rem 0 1rem;">Ready to own a piece?</h2>
+      <a href="/shop" class="btn btn--primary" style="background: var(--teal);">Shop the Collection</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(72px + var(--space-xl)) 0 var(--space-lg);
+    min-height: 40vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero__bg { position: absolute; inset: 0; background: var(--black); }
+  .page-hero__img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+  .page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 60%); }
+  .page-hero__content { position: relative; z-index: 2; color: var(--white); }
+  .page-hero__content h1 { margin-top: 0.5rem; font-weight: 300; }
+  .page-hero__content p { color: var(--fog); margin-top: 1rem; }
+
+  .process-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--cloud);
+  }
+  .process-block:last-of-type { border-bottom: none; }
+  .process-block--reverse .process-block__images { order: 2; }
+
+  .process-block__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .process-block__images img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .process-block__images--scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .process-block__images--scroll img {
+    width: 180px;
+    height: 240px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    aspect-ratio: auto;
+  }
+
+  .process-block__num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .process-block__text h2 { margin-bottom: 1rem; }
+  .process-block__text p + p { margin-top: 0.75rem; }
+
+  @media (max-width: 768px) {
+    .process-block { grid-template-columns: 1fr; }
+    .process-block--reverse .process-block__images { order: 0; }
+  }
+</style>

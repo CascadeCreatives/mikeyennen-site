@@ -1,0 +1,96 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  href?: string;
+  tag?: string;
+}
+
+const { title, description, image, href = '#', tag } = Astro.props;
+---
+
+<a href={href} class="collection-card">
+  <div class="collection-card__image">
+    <div class="collection-card__bg" style={`background-image: url(${image});`}></div>
+    <div class="collection-card__overlay"></div>
+    <div class="collection-card__content">
+      {tag && <span class="label">{tag}</span>}
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <span class="collection-card__cta">Explore →</span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .collection-card {
+    display: block;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .collection-card__image {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .collection-card__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--graphite);
+    transition: transform 0.7s ease;
+  }
+
+  .collection-card:hover .collection-card__bg {
+    transform: scale(1.06);
+  }
+
+  .collection-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.1) 60%);
+  }
+
+  .collection-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .collection-card__content h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .collection-card__content p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 30ch;
+  }
+
+  .collection-card__cta {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-top: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .collection-card:hover .collection-card__cta {
+    color: var(--white);
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — Mikey Ennen">
+
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <img src="/art/prints/lbs-blue-1-hero.jpg" alt="Mikey Ennen artwork" class="page-hero__img" />
+    </div>
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="label">About</span>
+      <h1>Mikey Ennen</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-layout">
+      <div class="about-image">
+        <img src="/art/misc/mike-salmon-hero.jpg" alt="Mikey Ennen" class="about-image__photo" />
+      </div>
+      <div class="about-text">
+        <h2>Art, nature, and the spaces between</h2>
+        <p>Mikey Ennen is an artist and designer based in the Pacific Northwest. His work draws from a life built around mountains, water, and creative practice — from competitive athletics to architecture to the woodcut printmaking that defines his current body of work.</p>
+        <p>Growing up in the San Juan Islands and the broader Pacific Northwest, the landscapes of the region became embedded in every mark he makes — the contours of ridgelines, the density of old-growth cedar, the movement of water through rocky passages.</p>
+        <p>His artistic path has been shaped by years of working across disciplines. A background in architecture sharpened his eye for composition, structure, and materiality. Athletics taught him discipline, rhythm, and the value of sustained effort. Those influences converge in artwork that balances precision with rawness, graphic clarity with organic texture.</p>
+        <p>Today, Mike works primarily in woodcut printmaking, ink, and acrylic. His subjects — ravens, salmon, mountains, shorelines, octopus — are drawn from direct observation and a deep connection to the natural world. Each piece is made by hand, start to finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Design Highlight -->
+  <section class="section" style="background: var(--cloud);">
+    <div class="container about-layout about-layout--reverse">
+      <div class="about-image">
+        <img src="/art/misc/wakeboard-design-hero.jpg" alt="Liquid Force Artist Series Wakeboard" class="about-image__photo about-image__photo--contain" />
+      </div>
+      <div class="about-text">
+        <span class="label">Product Design</span>
+        <h2>Art beyond the wall</h2>
+        <p>Mike's work extends beyond prints and panels. He has designed graphics for Liquid Force wakeboards (Artist Series), event posters for The Summit at Snoqualmie, and has applied his artwork to phone cases, apparel, and other products.</p>
+        <p>His vision for the future includes flat-packed furniture design, snowboard gear lockers, and deeper collaborations with outdoor and lifestyle brands.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery strip -->
+  <section class="section about-gallery">
+    <div class="container">
+      <div class="gallery-strip">
+        <img src="/art/prints/tradition-card.jpg" alt="Tradition" />
+        <img src="/art/prints/ravens-dark-blue-hr-card.jpg" alt="Ravens Dark Blue" />
+        <img src="/art/prints/gravity-rasta-card.jpg" alt="Gravity Rasta" />
+        <img src="/art/originals/octopus-painting-card.jpg" alt="Giant Pacific Octopus" />
+        <img src="/art/prints/kraken-card.jpg" alt="Kraken" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" style="text-align: center;">
+    <div class="container" style="max-width: 600px;">
+      <span class="label">Shop the Work</span>
+      <h2 style="margin: 0.5rem 0 1rem;">Ready to explore the collection?</h2>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/shop" class="btn btn--primary" style="background: var(--teal);">Shop the Collection</a>
+        <a href="/contact" class="btn btn--outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(72px + var(--space-xl)) 0 var(--space-lg);
+    min-height: 40vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .page-hero__bg { position: absolute; inset: 0; background: var(--black); }
+  .page-hero__img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+  .page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 60%); }
+  .page-hero__content { position: relative; z-index: 2; color: var(--white); }
+  .page-hero__content h1 { margin-top: 0.5rem; font-weight: 300; }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+  .about-layout--reverse .about-image { order: 2; }
+
+  .about-image__photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    position: sticky;
+    top: calc(72px + 2rem);
+  }
+  .about-image__photo--contain {
+    object-fit: contain;
+    background: var(--charcoal);
+    aspect-ratio: auto;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .about-text h2 { margin-bottom: 0.5rem; }
+
+  .gallery-strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+  .gallery-strip img {
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-layout { grid-template-columns: 1fr; }
+    .about-layout--reverse .about-image { order: 0; }
+    .about-image__photo { position: static; }
+    .gallery-strip img { height: 200px; }
+  }
+</style>

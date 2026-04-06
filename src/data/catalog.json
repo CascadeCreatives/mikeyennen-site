@@ -1,0 +1,814 @@
+[
+  {
+    "slug": "ravens-teal-wood",
+    "title": "Moonlight Ravens",
+    "category": "originals",
+    "medium": "Woodcut on Cedar Panel",
+    "description": "Two ravens perched among bare winter branches beneath a full moon. Teal and black ink on natural cedar.",
+    "color": "Teal / Natural Wood",
+    "images": {
+      "hero": "/art/originals/ravens-teal-wood-hero.jpg",
+      "card": "/art/originals/ravens-teal-wood-card.jpg",
+      "thumb": "/art/originals/ravens-teal-wood-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos007.jpg"
+  },
+  {
+    "slug": "ice-cave",
+    "title": "Ice Cave",
+    "category": "originals",
+    "medium": "Charcoal on Paper",
+    "description": "A lone figure silhouetted at the mouth of a glacial cave. Deep contrast charcoal drawing.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/ice-cave-hero.jpg",
+      "card": "/art/originals/ice-cave-card.jpg",
+      "thumb": "/art/originals/ice-cave-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos006.jpg"
+  },
+  {
+    "slug": "water-reflections",
+    "title": "Water Reflections",
+    "category": "originals",
+    "medium": "Charcoal on Paper",
+    "description": "Abstract study of light on moving water. Dense, fluid charcoal work.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/water-reflections-hero.jpg",
+      "card": "/art/originals/water-reflections-card.jpg",
+      "thumb": "/art/originals/water-reflections-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos002.jpg"
+  },
+  {
+    "slug": "portrait-study-i",
+    "title": "Portrait Study I",
+    "category": "originals",
+    "medium": "Charcoal on Paper",
+    "description": "Intimate close-up portrait rendered in rich charcoal tones.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/portrait-study-i-hero.jpg",
+      "card": "/art/originals/portrait-study-i-card.jpg",
+      "thumb": "/art/originals/portrait-study-i-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos001.jpg"
+  },
+  {
+    "slug": "portrait-study-ii",
+    "title": "Portrait Study II",
+    "category": "originals",
+    "medium": "Charcoal on Paper",
+    "description": "Weathered face study with dramatic light and shadow.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/portrait-study-ii-hero.jpg",
+      "card": "/art/originals/portrait-study-ii-card.jpg",
+      "thumb": "/art/originals/portrait-study-ii-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos004.jpg"
+  },
+  {
+    "slug": "mountain-ridge",
+    "title": "Mountain Ridge",
+    "category": "originals",
+    "medium": "Charcoal on Paper",
+    "description": "Abstract vertical composition of flowing alpine ridgelines.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/mountain-ridge-hero.jpg",
+      "card": "/art/originals/mountain-ridge-card.jpg",
+      "thumb": "/art/originals/mountain-ridge-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos005.jpg"
+  },
+  {
+    "slug": "abstract-surreal",
+    "title": "Abstract Surreal",
+    "category": "originals",
+    "medium": "Charcoal & Mixed Media on Paper",
+    "description": "Surreal composition blending organic spirals, geometric forms, and mountain silhouettes.",
+    "color": "Black / White",
+    "images": {
+      "hero": "/art/originals/abstract-surreal-hero.jpg",
+      "card": "/art/originals/abstract-surreal-card.jpg",
+      "thumb": "/art/originals/abstract-surreal-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos003.jpg"
+  },
+  {
+    "slug": "ravens-blue-print",
+    "title": "Moonlight Ravens \u2014 Blue",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Two ravens in bare branches. Hand-pulled print in sky blue and black.",
+    "color": "Blue / Black",
+    "images": {
+      "hero": "/art/prints/ravens-blue-print-hero.jpg",
+      "card": "/art/prints/ravens-blue-print-card.jpg",
+      "thumb": "/art/prints/ravens-blue-print-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos028.jpg"
+  },
+  {
+    "slug": "mountain-treeline-teal",
+    "title": "Mountain Treeline \u2014 Teal",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sweeping mountain landscape with dense forest and rolling clouds. Two-color print.",
+    "color": "Teal / Black",
+    "images": {
+      "hero": "/art/prints/mountain-treeline-teal-hero.jpg",
+      "card": "/art/prints/mountain-treeline-teal-card.jpg",
+      "thumb": "/art/prints/mountain-treeline-teal-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos015.jpg"
+  },
+  {
+    "slug": "sasquatch-green",
+    "title": "Sasquatch \u2014 Forest Green",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait with forest lake and waterfall backdrop. Multi-color green print.",
+    "color": "Green / Black",
+    "images": {
+      "hero": "/art/prints/sasquatch-green-hero.jpg",
+      "card": "/art/prints/sasquatch-green-card.jpg",
+      "thumb": "/art/prints/sasquatch-green-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos032.jpg"
+  },
+  {
+    "slug": "sasquatch-neon",
+    "title": "Sasquatch \u2014 Neon",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Full neon green colorway.",
+    "color": "Neon Green",
+    "images": {
+      "hero": "/art/prints/sasquatch-neon-hero.jpg",
+      "card": "/art/prints/sasquatch-neon-card.jpg",
+      "thumb": "/art/prints/sasquatch-neon-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos033.jpg"
+  },
+  {
+    "slug": "sasquatch-ochre",
+    "title": "Sasquatch \u2014 Ochre",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Warm ochre and gold tones.",
+    "color": "Ochre / Gold",
+    "images": {
+      "hero": "/art/prints/sasquatch-ochre-hero.jpg",
+      "card": "/art/prints/sasquatch-ochre-card.jpg",
+      "thumb": "/art/prints/sasquatch-ochre-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos034.jpg"
+  },
+  {
+    "slug": "sasquatch-tan",
+    "title": "Sasquatch \u2014 Natural",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Natural tan and brown tones on black.",
+    "color": "Tan / Black",
+    "images": {
+      "hero": "/art/prints/sasquatch-tan-hero.jpg",
+      "card": "/art/prints/sasquatch-tan-card.jpg",
+      "thumb": "/art/prints/sasquatch-tan-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos035.jpg"
+  },
+  {
+    "slug": "sasquatch-silver",
+    "title": "Sasquatch \u2014 Silver",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Cool silver and grey tones.",
+    "color": "Silver / Grey",
+    "images": {
+      "hero": "/art/prints/sasquatch-silver-hero.jpg",
+      "card": "/art/prints/sasquatch-silver-card.jpg",
+      "thumb": "/art/prints/sasquatch-silver-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos036.jpg"
+  },
+  {
+    "slug": "kraken",
+    "title": "Kraken",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Giant octopus engulfing a sailing vessel amid crashing waves. Compass rose and swirling seas.",
+    "color": "Blue / Black",
+    "images": {
+      "hero": "/art/prints/kraken-hero.jpg",
+      "card": "/art/prints/kraken-card.jpg",
+      "thumb": "/art/prints/kraken-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos039.jpg"
+  },
+  {
+    "slug": "baker-trees-bw",
+    "title": "Baker Trees \u2014 Black",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Snow-heavy conifers on Mount Baker. Clean single-color print. Edition of 10.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/baker-trees-bw-hero.jpg",
+      "card": "/art/prints/baker-trees-bw-card.jpg",
+      "thumb": "/art/prints/baker-trees-bw-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos019.jpg"
+  },
+  {
+    "slug": "baker-trees-grey",
+    "title": "Baker Trees \u2014 Grey",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Snow-heavy conifers on Mount Baker. Two-color grey variant. Edition of 10.",
+    "color": "Grey / Black",
+    "images": {
+      "hero": "/art/prints/baker-trees-grey-hero.jpg",
+      "card": "/art/prints/baker-trees-grey-card.jpg",
+      "thumb": "/art/prints/baker-trees-grey-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos021.jpg"
+  },
+  {
+    "slug": "ravenwood",
+    "title": "Ravenwood #2",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Massive fallen driftwood tree with ravens perched along its length. Edition of 22.",
+    "color": "Grey / Black",
+    "images": {
+      "hero": "/art/prints/ravenwood-hero.jpg",
+      "card": "/art/prints/ravenwood-card.jpg",
+      "thumb": "/art/prints/ravenwood-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos022.jpg"
+  },
+  {
+    "slug": "tree-blue",
+    "title": "Tree \u2014 Blue",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Bold graphic tree trunk splitting into angular branches. Blue sky with bark texture detail.",
+    "color": "Blue / Brown",
+    "images": {
+      "hero": "/art/prints/tree-blue-hero.jpg",
+      "card": "/art/prints/tree-blue-card.jpg",
+      "thumb": "/art/prints/tree-blue-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos030.jpg"
+  },
+  {
+    "slug": "island-rocks",
+    "title": "Island Rocks",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Rocky island coastline rising from crosshatched ocean. San Juan Islands.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/island-rocks-hero.jpg",
+      "card": "/art/prints/island-rocks-card.jpg",
+      "thumb": "/art/prints/island-rocks-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos016.jpg"
+  },
+  {
+    "slug": "salmon-run",
+    "title": "Salmon Run",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Spawning salmon in a mountain river surrounded by forest and clouds.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/salmon-run-hero.jpg",
+      "card": "/art/prints/salmon-run-card.jpg",
+      "thumb": "/art/prints/salmon-run-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos024.jpg"
+  },
+  {
+    "slug": "fishing-vessel",
+    "title": "Fishing Vessel",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Detailed commercial fishing boat with rigging, trees, and ornate bow.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/fishing-vessel-hero.jpg",
+      "card": "/art/prints/fishing-vessel-card.jpg",
+      "thumb": "/art/prints/fishing-vessel-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos014.jpg"
+  },
+  {
+    "slug": "shoe-tree",
+    "title": "Shoe Tree",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sneakers and shoes hanging from tree branches above a chaotic pile. Pop culture meets woodcut.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/shoe-tree-hero.jpg",
+      "card": "/art/prints/shoe-tree-card.jpg",
+      "thumb": "/art/prints/shoe-tree-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos037.jpg"
+  },
+  {
+    "slug": "waterfall-teal",
+    "title": "Waterfall \u2014 Teal",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Cascading waterfall over a rocky cliff face. Two-color print.",
+    "color": "Teal / Grey",
+    "images": {
+      "hero": "/art/prints/waterfall-teal-hero.jpg",
+      "card": "/art/prints/waterfall-teal-card.jpg",
+      "thumb": "/art/prints/waterfall-teal-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos038.jpg"
+  },
+  {
+    "slug": "mountain-flow-blue",
+    "title": "Mountain Flow \u2014 Blue",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Abstract flowing ridgelines descending to a deep blue edge. Organic linework.",
+    "color": "Blue",
+    "images": {
+      "hero": "/art/prints/mountain-flow-blue-hero.jpg",
+      "card": "/art/prints/mountain-flow-blue-card.jpg",
+      "thumb": "/art/prints/mountain-flow-blue-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos040.jpg"
+  },
+  {
+    "slug": "mountain-flow-dark",
+    "title": "Mountain Flow \u2014 Dark",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Abstract flowing ridgelines. Blue and black variant with darker contrast.",
+    "color": "Blue / Black",
+    "images": {
+      "hero": "/art/prints/mountain-flow-dark-hero.jpg",
+      "card": "/art/prints/mountain-flow-dark-card.jpg",
+      "thumb": "/art/prints/mountain-flow-dark-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos041.jpg"
+  },
+  {
+    "slug": "figure-study",
+    "title": "Figure Study",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Reclining figure rendered in fine crosshatched linework.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/figure-study-hero.jpg",
+      "card": "/art/prints/figure-study-card.jpg",
+      "thumb": "/art/prints/figure-study-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos025.jpg"
+  },
+  {
+    "slug": "portrait-sunglasses",
+    "title": "Portrait \u2014 Sunglasses",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Woman in sunglasses. Bold graphic portrait with fine line detail.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/portrait-sunglasses-hero.jpg",
+      "card": "/art/prints/portrait-sunglasses-card.jpg",
+      "thumb": "/art/prints/portrait-sunglasses-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos029.jpg"
+  },
+  {
+    "slug": "old-growth-canopy",
+    "title": "Old Growth Canopy",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Towering tree trunks with dense swirling canopy overhead.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/old-growth-canopy-hero.jpg",
+      "card": "/art/prints/old-growth-canopy-card.jpg",
+      "thumb": "/art/prints/old-growth-canopy-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos027.jpg"
+  },
+  {
+    "slug": "forest-panorama",
+    "title": "Forest \u2014 Panorama",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Panoramic forest scene. Trees, canopy, and dappled light.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/forest-panorama-hero.jpg",
+      "card": "/art/prints/forest-panorama-card.jpg",
+      "thumb": "/art/prints/forest-panorama-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos031.jpg"
+  },
+  {
+    "slug": "island-cliffs",
+    "title": "Island Cliffs",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "San Juan Islands cliff face with dense forest and ocean.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/island-cliffs-hero.jpg",
+      "card": "/art/prints/island-cliffs-card.jpg",
+      "thumb": "/art/prints/island-cliffs-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos023.jpg"
+  },
+  {
+    "slug": "ravenwood-yellow",
+    "title": "Ravenwood \u2014 Yellow",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Fallen driftwood tree with perched ravens. Bright yellow background variant.",
+    "color": "Yellow / Black",
+    "images": {
+      "hero": "/art/prints/ravenwood-yellow-hero.jpg",
+      "card": "/art/prints/ravenwood-yellow-card.jpg",
+      "thumb": "/art/prints/ravenwood-yellow-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos026.jpg"
+  },
+  {
+    "slug": "bird-abstract-teal",
+    "title": "Bird & Current \u2014 Teal",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Bird among swirling abstract water currents. Multi-color print with teal and grey.",
+    "color": "Teal / Grey",
+    "images": {
+      "hero": "/art/prints/bird-abstract-teal-hero.jpg",
+      "card": "/art/prints/bird-abstract-teal-card.jpg",
+      "thumb": "/art/prints/bird-abstract-teal-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos017.jpg"
+  },
+  {
+    "slug": "bird-abstract-blue",
+    "title": "Bird & Current \u2014 Blue",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Bird among swirling abstract water currents. Blue colorway.",
+    "color": "Blue / Grey",
+    "images": {
+      "hero": "/art/prints/bird-abstract-blue-hero.jpg",
+      "card": "/art/prints/bird-abstract-blue-card.jpg",
+      "thumb": "/art/prints/bird-abstract-blue-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos018.jpg"
+  },
+  {
+    "slug": "san-juan-trees",
+    "title": "San Juan Trees",
+    "category": "prints",
+    "medium": "Woodcut Print on Paper",
+    "description": "Dense island forest with rocky coastline. San Juan Islands.",
+    "color": "Black",
+    "images": {
+      "hero": "/art/prints/san-juan-trees-hero.jpg",
+      "card": "/art/prints/san-juan-trees-card.jpg",
+      "thumb": "/art/prints/san-juan-trees-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos020.jpg"
+  },
+  {
+    "slug": "block-mountain-treeline",
+    "title": "Block \u2014 Mountain Treeline",
+    "category": "process",
+    "medium": "Carved Woodcut Block",
+    "description": "The original carved block for the Mountain Treeline series.",
+    "color": "Natural Wood",
+    "images": {
+      "hero": "/art/process/block-mountain-treeline-hero.jpg",
+      "card": "/art/process/block-mountain-treeline-card.jpg",
+      "thumb": "/art/process/block-mountain-treeline-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos010.jpg"
+  },
+  {
+    "slug": "block-fishing-vessel",
+    "title": "Block \u2014 Fishing Vessel",
+    "category": "process",
+    "medium": "Carved Woodcut Block",
+    "description": "The original carved block for the Fishing Vessel print.",
+    "color": "Natural Wood",
+    "images": {
+      "hero": "/art/process/block-fishing-vessel-hero.jpg",
+      "card": "/art/process/block-fishing-vessel-card.jpg",
+      "thumb": "/art/process/block-fishing-vessel-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos011.jpg"
+  },
+  {
+    "slug": "block-salmon-run",
+    "title": "Block \u2014 Salmon Run",
+    "category": "process",
+    "medium": "Carved Woodcut Block",
+    "description": "The original carved block for the Salmon Run print.",
+    "color": "Natural Wood",
+    "images": {
+      "hero": "/art/process/block-salmon-run-hero.jpg",
+      "card": "/art/process/block-salmon-run-card.jpg",
+      "thumb": "/art/process/block-salmon-run-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos013.jpg"
+  },
+  {
+    "slug": "block-skull",
+    "title": "Block \u2014 Skull Study",
+    "category": "process",
+    "medium": "Carved Woodcut Block",
+    "description": "Anatomical skull with wood grain background. Unprinted block.",
+    "color": "Natural Wood",
+    "images": {
+      "hero": "/art/process/block-skull-hero.jpg",
+      "card": "/art/process/block-skull-card.jpg",
+      "thumb": "/art/process/block-skull-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos009.jpg"
+  },
+  {
+    "slug": "block-sailboat",
+    "title": "Block \u2014 Sailboat",
+    "category": "process",
+    "medium": "Carved Woodcut Block",
+    "description": "Sailboat composition in progress. Partially carved block.",
+    "color": "Natural Wood",
+    "images": {
+      "hero": "/art/process/block-sailboat-hero.jpg",
+      "card": "/art/process/block-sailboat-card.jpg",
+      "thumb": "/art/process/block-sailboat-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos012.jpg"
+  },
+  {
+    "slug": "ravens-teal-wood-alt",
+    "title": "Moonlight Ravens \u2014 Angle",
+    "category": "process",
+    "medium": "Woodcut on Cedar Panel",
+    "description": "Alternate angle of the Moonlight Ravens wood panel.",
+    "color": "Teal / Natural Wood",
+    "images": {
+      "hero": "/art/process/ravens-teal-wood-alt-hero.jpg",
+      "card": "/art/process/ravens-teal-wood-alt-card.jpg",
+      "thumb": "/art/process/ravens-teal-wood-alt-thumb.jpg"
+    },
+    "source": "m.enne.p.duclos008.jpg"
+  },
+  {
+    "slug": "summit-poster",
+    "title": "Summit at Snoqualmie Poster",
+    "category": "misc",
+    "medium": "Event Poster Design",
+    "description": "PacWest Banked Slalom event poster. Illustration and design.",
+    "color": "Black / Blue",
+    "images": {
+      "hero": "/art/misc/summit-poster-hero.jpg",
+      "card": "/art/misc/summit-poster-card.jpg",
+      "thumb": "/art/misc/summit-poster-thumb.jpg"
+    },
+    "source": "poster art.jpg"
+  },
+  {
+    "slug": "wakeboard-design",
+    "title": "Liquid Force Wakeboard",
+    "category": "misc",
+    "medium": "Product Design",
+    "description": "Artist Series wakeboard design for Liquid Force.",
+    "color": "Green / Teal / Wood",
+    "images": {
+      "hero": "/art/misc/wakeboard-design-hero.jpg",
+      "card": "/art/misc/wakeboard-design-card.jpg",
+      "thumb": "/art/misc/wakeboard-design-thumb.jpg"
+    },
+    "source": "Mikey Ennen design art on a liquid force wakeboard.jpg"
+  },
+  {
+    "slug": "mike-salmon",
+    "title": "Mike \u2014 Salmon",
+    "category": "misc",
+    "medium": "Photo",
+    "description": "Mikey Ennen with a large salmon catch.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/mike-salmon-hero.jpg",
+      "card": "/art/misc/mike-salmon-card.jpg",
+      "thumb": "/art/misc/mike-salmon-thumb.jpg"
+    },
+    "source": "Mikey Ennen Holding Large Salmon.jpg"
+  },
+  {
+    "slug": "phone-case-1",
+    "title": "Phone Case Mockup",
+    "category": "misc",
+    "medium": "Product Mockup",
+    "description": "Art applied to phone case.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/phone-case-1-hero.jpg",
+      "card": "/art/misc/phone-case-1-card.jpg",
+      "thumb": "/art/misc/phone-case-1-thumb.jpg"
+    },
+    "source": "cell phone case art.jpg"
+  },
+  {
+    "slug": "phone-case-2",
+    "title": "Phone Case Mockup 2",
+    "category": "misc",
+    "medium": "Product Mockup",
+    "description": "Art applied to phone case.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/phone-case-2-hero.jpg",
+      "card": "/art/misc/phone-case-2-card.jpg",
+      "thumb": "/art/misc/phone-case-2-thumb.jpg"
+    },
+    "source": "cell phone case art 2.jpg"
+  },
+  {
+    "slug": "laptop-mockup",
+    "title": "Laptop Mockup",
+    "category": "misc",
+    "medium": "Product Mockup",
+    "description": "Art applied to laptop.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/laptop-mockup-hero.jpg",
+      "card": "/art/misc/laptop-mockup-card.jpg",
+      "thumb": "/art/misc/laptop-mockup-thumb.jpg"
+    },
+    "source": "laptop art.jpg"
+  },
+  {
+    "slug": "ipad-mockup",
+    "title": "iPad Mockup",
+    "category": "misc",
+    "medium": "Product Mockup",
+    "description": "Art applied to iPad.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/ipad-mockup-hero.jpg",
+      "card": "/art/misc/ipad-mockup-card.jpg",
+      "thumb": "/art/misc/ipad-mockup-thumb.jpg"
+    },
+    "source": "ipad art.jpg"
+  },
+  {
+    "slug": "snowboard-art",
+    "title": "Snowboard Art",
+    "category": "misc",
+    "medium": "Photo",
+    "description": "Mike's art in a snow sports context.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/snowboard-art-hero.jpg",
+      "card": "/art/misc/snowboard-art-card.jpg",
+      "thumb": "/art/misc/snowboard-art-thumb.jpg"
+    },
+    "source": "s.jpg"
+  },
+  {
+    "slug": "social-post",
+    "title": "Social Post",
+    "category": "misc",
+    "medium": "Photo",
+    "description": "Social media image.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/social-post-hero.jpg",
+      "card": "/art/misc/social-post-card.jpg",
+      "thumb": "/art/misc/social-post-thumb.jpg"
+    },
+    "source": "505334218_3253578701487101_3600681650427250847_n.jpg"
+  },
+  {
+    "slug": "summit-art-detail",
+    "title": "Summit Art Detail",
+    "category": "misc",
+    "medium": "Illustration",
+    "description": "Detail illustration for Summit at Snoqualmie.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/summit-art-detail-hero.jpg",
+      "card": "/art/misc/summit-art-detail-card.jpg",
+      "thumb": "/art/misc/summit-art-detail-thumb.jpg"
+    },
+    "source": "Art for Summit at Snoqualmie.jpg"
+  },
+  {
+    "slug": "mountain-treeline-crop",
+    "title": "Mountain Treeline \u2014 Crop",
+    "category": "misc",
+    "medium": "Social Crop",
+    "description": "Cropped detail of the Mountain Treeline print for social use.",
+    "color": "Teal / Black",
+    "images": {
+      "hero": "/art/misc/mountain-treeline-crop-hero.jpg",
+      "card": "/art/misc/mountain-treeline-crop-card.jpg",
+      "thumb": "/art/misc/mountain-treeline-crop-thumb.jpg"
+    },
+    "source": "Art.jpg"
+  },
+  {
+    "slug": "sji-ref-2",
+    "title": "San Juan Islands Ref",
+    "category": "misc",
+    "medium": "Photo",
+    "description": "San Juan Islands reference.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/sji-ref-2-hero.jpg",
+      "card": "/art/misc/sji-ref-2-card.jpg",
+      "thumb": "/art/misc/sji-ref-2-thumb.jpg"
+    },
+    "source": "san juan islands 2.jpg"
+  },
+  {
+    "slug": "sji-ref-1",
+    "title": "San Juan Islands Ref 2",
+    "category": "misc",
+    "medium": "Photo",
+    "description": "San Juan Islands reference.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/sji-ref-1-hero.jpg",
+      "card": "/art/misc/sji-ref-1-card.jpg",
+      "thumb": "/art/misc/sji-ref-1-thumb.jpg"
+    },
+    "source": "San juan islands.jpg"
+  },
+  {
+    "slug": "arch-sayulita",
+    "title": "Sayulita House",
+    "category": "misc",
+    "medium": "Architecture Photo",
+    "description": "Residential architecture project in Sayulita, Mexico.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/arch-sayulita-hero.jpg",
+      "card": "/art/misc/arch-sayulita-card.jpg",
+      "thumb": "/art/misc/arch-sayulita-thumb.jpg"
+    },
+    "source": "Sayulita.jpg"
+  },
+  {
+    "slug": "arch-seattle",
+    "title": "Seattle Project",
+    "category": "misc",
+    "medium": "Architecture Photo",
+    "description": "Commercial architecture project in Seattle.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/arch-seattle-hero.jpg",
+      "card": "/art/misc/arch-seattle-card.jpg",
+      "thumb": "/art/misc/arch-seattle-thumb.jpg"
+    },
+    "source": "Seattle Project.jpg"
+  },
+  {
+    "slug": "arch-house-concept",
+    "title": "House Concept",
+    "category": "misc",
+    "medium": "Architecture Rendering",
+    "description": "Residential design concept.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/arch-house-concept-hero.jpg",
+      "card": "/art/misc/arch-house-concept-card.jpg",
+      "thumb": "/art/misc/arch-house-concept-thumb.jpg"
+    },
+    "source": "House Concept.jpg"
+  },
+  {
+    "slug": "arch-oak-alder",
+    "title": "Oak & Alder House",
+    "category": "misc",
+    "medium": "Architecture Photo",
+    "description": "Hybrid residential project.",
+    "color": "",
+    "images": {
+      "hero": "/art/misc/arch-oak-alder-hero.jpg",
+      "card": "/art/misc/arch-oak-alder-card.jpg",
+      "thumb": "/art/misc/arch-oak-alder-thumb.jpg"
+    },
+    "source": "Oak and alder house hybrid.jpg"
+  }
+]

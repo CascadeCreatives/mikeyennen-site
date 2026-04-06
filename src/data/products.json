@@ -1,0 +1,728 @@
+[
+  {
+    "slug": "ravens-teal-wood",
+    "title": "Moonlight Ravens",
+    "medium": "Woodcut on Cedar Panel",
+    "description": "Two ravens perched among bare winter branches beneath a full moon. Teal and black ink on natural cedar.",
+    "color": "Teal / Natural Wood",
+    "image": "/art/originals/ravens-teal-wood",
+    "featured": true,
+    "hero": true,
+    "formats": [
+      {
+        "type": "original",
+        "price": 680,
+        "available": true,
+        "detail": "One of a kind. Woodcut on cedar panel."
+      },
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Archival gicl\u00e9e on Enhanced Matte. 12\u00d716\"."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "ice-cave",
+    "title": "Ice Cave",
+    "medium": "Charcoal on Paper",
+    "description": "A lone figure silhouetted at the mouth of a glacial cave. Deep contrast charcoal drawing.",
+    "color": "Black / White",
+    "image": "/art/originals/ice-cave",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "original",
+        "price": 520,
+        "available": true,
+        "detail": "Framed charcoal on paper."
+      },
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Archival gicl\u00e9e. 12\u00d716\"."
+      }
+    ]
+  },
+  {
+    "slug": "kraken",
+    "title": "Kraken",
+    "medium": "Woodcut Print on Paper",
+    "description": "Giant octopus engulfing a sailing vessel amid crashing waves. Compass rose and swirling seas.",
+    "color": "Blue / Black",
+    "image": "/art/prints/kraken",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "mountain-treeline-teal",
+    "title": "Mountain Treeline \u2014 Teal",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sweeping mountain landscape with dense forest and rolling clouds. Two-color hand-pulled print.",
+    "color": "Teal / Black",
+    "image": "/art/prints/mountain-treeline-teal",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "sasquatch-green",
+    "title": "Sasquatch \u2014 Forest Green",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait with forest lake and waterfall backdrop. Multi-color green print.",
+    "color": "Green / Black",
+    "image": "/art/prints/sasquatch-green",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "sasquatch-neon",
+    "title": "Sasquatch \u2014 Neon",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Full neon green colorway.",
+    "color": "Neon Green",
+    "image": "/art/prints/sasquatch-neon",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "sasquatch-ochre",
+    "title": "Sasquatch \u2014 Ochre",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Warm ochre and gold tones.",
+    "color": "Ochre / Gold",
+    "image": "/art/prints/sasquatch-ochre",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "sasquatch-tan",
+    "title": "Sasquatch \u2014 Natural",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Natural tan and brown tones on black.",
+    "color": "Tan / Black",
+    "image": "/art/prints/sasquatch-tan",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "sasquatch-silver",
+    "title": "Sasquatch \u2014 Silver",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sasquatch portrait. Cool silver and grey tones.",
+    "color": "Silver / Grey",
+    "image": "/art/prints/sasquatch-silver",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "ravens-blue-print",
+    "title": "Moonlight Ravens \u2014 Blue",
+    "medium": "Woodcut Print on Paper",
+    "description": "Two ravens in bare branches. Hand-pulled print in sky blue and black.",
+    "color": "Blue / Black",
+    "image": "/art/prints/ravens-blue-print",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "baker-trees-bw",
+    "title": "Baker Trees \u2014 Black",
+    "medium": "Woodcut Print on Paper",
+    "description": "Snow-heavy conifers on Mount Baker. Clean single-color print. Edition of 10.",
+    "color": "Black",
+    "image": "/art/prints/baker-trees-bw",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Ed. of 10."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "baker-trees-grey",
+    "title": "Baker Trees \u2014 Grey",
+    "medium": "Woodcut Print on Paper",
+    "description": "Snow-heavy conifers on Mount Baker. Two-color grey variant. Edition of 10.",
+    "color": "Grey / Black",
+    "image": "/art/prints/baker-trees-grey",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Ed. of 10."
+      }
+    ]
+  },
+  {
+    "slug": "ravenwood",
+    "title": "Ravenwood #2",
+    "medium": "Woodcut Print on Paper",
+    "description": "Massive fallen driftwood tree with ravens perched along its length. Edition of 22.",
+    "color": "Grey / Black",
+    "image": "/art/prints/ravenwood",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Ed. of 22."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "tree-blue",
+    "title": "Tree \u2014 Blue",
+    "medium": "Woodcut Print on Paper",
+    "description": "Bold graphic tree trunk splitting into angular branches. Blue sky with bark texture detail.",
+    "color": "Blue / Brown",
+    "image": "/art/prints/tree-blue",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "salmon-run",
+    "title": "Salmon Run",
+    "medium": "Woodcut Print on Paper",
+    "description": "Spawning salmon in a mountain river surrounded by forest and clouds.",
+    "color": "Black",
+    "image": "/art/prints/salmon-run",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "waterfall-teal",
+    "title": "Waterfall \u2014 Teal",
+    "medium": "Woodcut Print on Paper",
+    "description": "Cascading waterfall over a rocky cliff face. Two-color print.",
+    "color": "Teal / Grey",
+    "image": "/art/prints/waterfall-teal",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "island-rocks",
+    "title": "Island Rocks",
+    "medium": "Woodcut Print on Paper",
+    "description": "Rocky island coastline rising from crosshatched ocean. San Juan Islands.",
+    "color": "Black",
+    "image": "/art/prints/island-rocks",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "shoe-tree",
+    "title": "Shoe Tree",
+    "medium": "Woodcut Print on Paper",
+    "description": "Sneakers and shoes hanging from tree branches above a chaotic pile. Pop culture meets woodcut.",
+    "color": "Black",
+    "image": "/art/prints/shoe-tree",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "ravenwood-yellow",
+    "title": "Ravenwood \u2014 Yellow",
+    "medium": "Woodcut Print on Paper",
+    "description": "Fallen driftwood tree with perched ravens. Bright yellow background variant.",
+    "color": "Yellow / Black",
+    "image": "/art/prints/ravenwood-yellow",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "old-growth-canopy",
+    "title": "Old Growth Canopy",
+    "medium": "Woodcut Print on Paper",
+    "description": "Towering tree trunks with dense swirling canopy overhead.",
+    "color": "Black",
+    "image": "/art/prints/old-growth-canopy",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "water-reflections",
+    "title": "Water Reflections",
+    "medium": "Charcoal on Paper",
+    "description": "Abstract study of light on moving water. Dense, fluid charcoal work.",
+    "color": "Black / White",
+    "image": "/art/originals/water-reflections",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "original",
+        "price": 440,
+        "available": true,
+        "detail": "Framed charcoal on paper."
+      },
+      {
+        "type": "print",
+        "price": 38,
+        "available": true,
+        "detail": "Archival gicl\u00e9e. 11\u00d714\"."
+      }
+    ]
+  },
+  {
+    "slug": "mountain-ridge",
+    "title": "Mountain Ridge",
+    "medium": "Charcoal on Paper",
+    "description": "Abstract vertical composition of flowing alpine ridgelines.",
+    "color": "Black / White",
+    "image": "/art/originals/mountain-ridge",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "original",
+        "price": 480,
+        "available": true,
+        "detail": "Framed charcoal on paper."
+      },
+      {
+        "type": "print",
+        "price": 38,
+        "available": true,
+        "detail": "Archival gicl\u00e9e. 11\u00d717\"."
+      }
+    ]
+  },
+  {
+    "slug": "bird-abstract-teal",
+    "title": "Bird & Current \u2014 Teal",
+    "medium": "Woodcut Print on Paper",
+    "description": "Bird among swirling abstract water currents. Multi-color print with teal and grey.",
+    "color": "Teal / Grey",
+    "image": "/art/prints/bird-abstract-teal",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "mountain-flow-blue",
+    "title": "Mountain Flow \u2014 Blue",
+    "medium": "Woodcut Print on Paper",
+    "description": "Abstract flowing ridgelines descending to a deep blue edge. Organic linework.",
+    "color": "Blue",
+    "image": "/art/prints/mountain-flow-blue",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "fishing-vessel",
+    "title": "Fishing Vessel",
+    "medium": "Woodcut Print on Paper",
+    "description": "Detailed commercial fishing boat with rigging, trees, and ornate bow.",
+    "color": "Black",
+    "image": "/art/prints/fishing-vessel",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "octopus-painting",
+    "title": "Giant Pacific Octopus",
+    "medium": "Acrylic on Panel",
+    "description": "Panoramic painted octopus with swirling tentacles. Orange, blue, and black on panel.",
+    "color": "Orange / Blue / Black",
+    "image": "/art/originals/octopus-painting",
+    "featured": true,
+    "hero": true,
+    "formats": [
+      {
+        "type": "original",
+        "price": 950,
+        "available": true,
+        "detail": "One of a kind. Acrylic on panel. Panoramic format."
+      },
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Archival gicl\u00e9e. 12\u00d736\" panoramic."
+      },
+      {
+        "type": "tee",
+        "price": 34,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "lbs-blue-1",
+    "title": "LBS \u2014 Blue I",
+    "medium": "Woodcut Print on Paper",
+    "description": "Winding mountain road through snowy peaks with raven in the foreground. Multi-color blue and teal.",
+    "color": "Blue / Teal",
+    "image": "/art/prints/lbs-blue-1",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "gravity-rasta",
+    "title": "Gravity \u2014 Rasta",
+    "medium": "Woodcut Print on Paper",
+    "description": "Mountain landscape with swirling canopy and trees. Rainbow gradient colorway. Edition of 20.",
+    "color": "Green / Yellow / Red",
+    "image": "/art/prints/gravity-rasta",
+    "featured": true,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Ed. of 20."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "ravens-dark-blue-hr",
+    "title": "Moonlight Ravens \u2014 Dark Blue",
+    "medium": "Woodcut Print on Paper",
+    "description": "Two ravens in bare winter branches beneath a full moon. Deep blue colorway.",
+    "color": "Dark Blue / Black",
+    "image": "/art/prints/ravens-dark-blue-hr",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "ravens-dark-green",
+    "title": "Moonlight Ravens \u2014 Dark Green",
+    "medium": "Woodcut Print on Paper",
+    "description": "Two ravens in bare winter branches beneath a full moon. Forest green colorway.",
+    "color": "Dark Green / Black",
+    "image": "/art/prints/ravens-dark-green",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "ravens-light-teal",
+    "title": "Moonlight Ravens \u2014 Light Teal",
+    "medium": "Woodcut Print on Paper",
+    "description": "Two ravens in bare winter branches beneath a full moon. Light teal colorway.",
+    "color": "Teal / Black",
+    "image": "/art/prints/ravens-light-teal",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 55,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  },
+  {
+    "slug": "tradition",
+    "title": "Tradition",
+    "medium": "Woodcut Print on Paper",
+    "description": "Mountain with crashing waves and a rooted tree. Bold black linework.",
+    "color": "Black",
+    "image": "/art/prints/tradition",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
+    "slug": "waterfall-bw",
+    "title": "Waterfall \u2014 Black",
+    "medium": "Woodcut Print on Paper",
+    "description": "Cascading waterfall over rocky cliff face. Single-color black print.",
+    "color": "Black",
+    "image": "/art/prints/waterfall-bw",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 48,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition."
+      }
+    ]
+  }
+]
