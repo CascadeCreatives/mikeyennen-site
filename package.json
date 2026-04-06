@@ -8,6 +8,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.8.0"
+    "astro": "^5.8.0",
+    "@astrojs/vercel": "^8.0.0",
+    "stripe": "^17.0.0"
   }
 }
