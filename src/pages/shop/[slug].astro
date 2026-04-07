@@ -48,6 +48,19 @@ const availableFormats = product.formats.filter((f: any) => f.available);
 
         <p class="format-detail" id="formatDetail">{availableFormats[0]?.detail}</p>
 
+        <!-- Size picker — shown only when Tee is selected -->
+        <div class="size-picker" id="sizePicker">
+          <p class="size-label">Size</p>
+          <div class="size-options">
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+            <button class="size-btn" data-size="2XL">2XL</button>
+          </div>
+          <p class="size-error" id="sizeError">Please select a size.</p>
+        </div>
+
         <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug}>
           Buy Now
         </button>
@@ -156,6 +169,66 @@ const availableFormats = product.formats.filter((f: any) => f.available);
     min-height: 1.5em;
   }
 
+  /* ── Size picker ─────────────────────────────────────── */
+  .size-picker {
+    display: none;
+    margin-bottom: var(--space-md);
+  }
+
+  .size-picker.visible {
+    display: block;
+  }
+
+  .size-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.5rem;
+  }
+
+  .size-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .size-btn {
+    padding: 0.5rem 0.9rem;
+    background: transparent;
+    border: 1px solid var(--mist);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .size-btn:hover {
+    border-color: var(--charcoal);
+  }
+
+  .size-btn.active {
+    border-color: var(--charcoal);
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .size-error {
+    display: none;
+    font-size: 0.8rem;
+    color: #c0392b;
+    margin-top: 0.4rem;
+  }
+
+  .size-error.visible {
+    display: block;
+  }
+
+  /* ─────────────────────────────────────────────────────── */
+
   .buy-btn {
     width: 100%;
     justify-content: center;
@@ -213,17 +286,40 @@ const availableFormats = product.formats.filter((f: any) => f.available);
 </style>
 
 <script>
-  const buttons = document.querySelectorAll('.format-btn');
+  // ── Format selector ──────────────────────────────────────────────────────────
+  const formatBtns = document.querySelectorAll('.format-btn');
   const detail = document.getElementById('formatDetail');
+  const sizePicker = document.getElementById('sizePicker');
+  const sizeError = document.getElementById('sizeError');
 
-  buttons.forEach((btn) => {
+  formatBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      buttons.forEach((b) => b.classList.remove('active'));
+      formatBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       if (detail) detail.textContent = btn.getAttribute('data-detail') || '';
+
+      // Show/hide size picker
+      const isTee = btn.getAttribute('data-format') === 'tee';
+      sizePicker?.classList.toggle('visible', isTee);
+
+      // Clear size selection and error when switching formats
+      document.querySelectorAll('.size-btn').forEach((s) => s.classList.remove('active'));
+      sizeError?.classList.remove('visible');
     });
   });
 
+  // ── Size selector ────────────────────────────────────────────────────────────
+  const sizeBtns = document.querySelectorAll('.size-btn');
+
+  sizeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      sizeBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      sizeError?.classList.remove('visible');
+    });
+  });
+
+  // ── Buy button ───────────────────────────────────────────────────────────────
   const buyBtn = document.getElementById('buyBtn') as HTMLButtonElement;
   const overlay = document.getElementById('loadingOverlay');
 
@@ -234,6 +330,17 @@ const availableFormats = product.formats.filter((f: any) => f.available);
     const slug = buyBtn.dataset.slug;
     const format = activeFormat.getAttribute('data-format');
 
+    // Tee requires a size selection
+    let size: string | null = null;
+    if (format === 'tee') {
+      const activeSize = document.querySelector('.size-btn.active');
+      if (!activeSize) {
+        sizeError?.classList.add('visible');
+        return;
+      }
+      size = activeSize.getAttribute('data-size');
+    }
+
     buyBtn.disabled = true;
     buyBtn.textContent = 'Processing…';
     overlay?.classList.add('visible');
@@ -242,7 +349,7 @@ const availableFormats = product.formats.filter((f: any) => f.available);
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, format, quantity: 1 }),
+        body: JSON.stringify({ slug, format, quantity: 1, ...(size ? { size } : {}) }),
       });
 
       const data = await res.json();
