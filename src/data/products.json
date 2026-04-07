@@ -552,7 +552,7 @@
     "description": "Panoramic painted octopus with swirling tentacles. Orange, blue, and black on panel.",
     "color": "Orange / Blue / Black",
     "image": "/art/originals/octopus-painting",
-    "featured": true,
+    "featured": false,
     "hero": true,
     "formats": [
       {

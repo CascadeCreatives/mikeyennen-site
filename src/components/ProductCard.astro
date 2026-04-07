@@ -6,16 +6,21 @@ interface Props {
   category?: string;
   href?: string;
   soldOut?: boolean;
+  objectPosition?: string; // e.g. "center top", "center 20%"
 }
 
-const { title, price, image, category, href = '#', soldOut = false } = Astro.props;
+const { title, price, image, category, href = '#', soldOut = false, objectPosition = 'center' } = Astro.props;
 ---
 
 <a href={href} class="product-card">
   <div class="product-card__image">
-    <div class="product-card__placeholder" style={`background-image: url(${image});`}>
-      {!image && <span>Artwork</span>}
-    </div>
+    <img
+      src={image}
+      alt={title}
+      class="product-card__img"
+      style={`object-position: ${objectPosition};`}
+      loading="lazy"
+    />
     {soldOut && <span class="product-card__badge">Sold</span>}
   </div>
   <div class="product-card__info">
@@ -30,7 +35,6 @@ const { title, price, image, category, href = '#', soldOut = false } = Astro.pro
     display: block;
     text-decoration: none;
     color: inherit;
-    group: product;
   }
 
   .product-card__image {
@@ -41,25 +45,16 @@ const { title, price, image, category, href = '#', soldOut = false } = Astro.pro
     margin-bottom: 1rem;
   }
 
-  .product-card__placeholder {
+  .product-card__img {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.6s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
   }
 
-  .product-card__placeholder span {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--fog);
-    font-style: italic;
-  }
-
-  .product-card:hover .product-card__placeholder {
+  .product-card:hover .product-card__img {
     transform: scale(1.04);
   }
 
