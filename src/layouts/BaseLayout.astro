@@ -2,10 +2,21 @@
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
 }
 
-const { title = 'Mikey Ennen — Artist & Designer', description = 'Original artwork, prints, and apparel rooted in Pacific Northwest nature.' } = Astro.props;
+const {
+  title = 'Mikey Ennen — Artist & Designer',
+  description = 'Original artwork, prints, and apparel rooted in Pacific Northwest nature.',
+  ogImage = '/og-image.jpg',
+  ogType = 'website',
+} = Astro.props;
+
 const currentPath = Astro.url.pathname;
+const siteUrl = 'https://mikeyennen-site.vercel.app';
+const canonicalUrl = `${siteUrl}${currentPath}`;
+const ogImageUrl = `${siteUrl}${ogImage}`;
 ---
 
 <!DOCTYPE html>
@@ -15,7 +26,29 @@ const currentPath = Astro.url.pathname;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <title>{title}</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/og-image.jpg" />
+
+  <!-- Open Graph (Facebook, iMessage, LinkedIn, Slack) -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Mikey Ennen" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
 </head>
 <body>
 
