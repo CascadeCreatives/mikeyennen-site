@@ -26,19 +26,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-info">
         <div class="contact-block">
           <h3>Art Inquiries & Commissions</h3>
-          <p>Interested in an original piece or a custom commission? Reach out and let's talk about what you're looking for.</p>
+          <p>Interested in an original piece or a custom commission? Include what you're envisioning — subject, size, medium, and timeline — and Mike will follow up with availability and pricing. Commissions typically take 4–8 weeks depending on complexity.</p>
         </div>
         <div class="contact-block">
           <h3>Shop & Orders</h3>
-          <p>Questions about prints, shirts, shipping, or returns? Happy to help.</p>
+          <p>Questions about prints, shirts, shipping, or returns? Check the <a href="/faq" style="color: var(--teal); text-decoration: underline; text-underline-offset: 2px;">FAQ</a> for quick answers, or reach out here and we'll get back to you.</p>
         </div>
         <div class="contact-block">
           <h3>Collaborations & Licensing</h3>
-          <p>Open to creative partnerships, brand collaborations, and licensing conversations.</p>
+          <p>Open to creative partnerships, brand collaborations, and licensing conversations. If you have a project in mind, share the details and we'll set up a call.</p>
         </div>
         <div class="contact-block">
           <h3>Say Hello</h3>
           <p>Just want to connect? That works too.</p>
+        </div>
+        <div class="contact-response">
+          <p>Most messages receive a reply within 1–2 business days.</p>
         </div>
         <div class="contact-email">
           <a href="mailto:Mikeennendesign@gmail.com">Mikeennendesign@gmail.com</a>
@@ -142,6 +145,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .contact-email a:hover {
     color: var(--charcoal);
+  }
+
+  .contact-response {
+    margin-top: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--cloud);
+    border-left: 2px solid var(--teal);
+  }
+
+  .contact-response p {
+    font-size: 0.82rem;
+    color: var(--stone);
+    margin: 0;
   }
 
   /* ---- Form ---- */
