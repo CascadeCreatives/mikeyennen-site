@@ -264,6 +264,30 @@
     ]
   },
   {
+    "slug": "mt-shuksan-trees",
+    "title": "Mt. Shuksan Trees",
+    "medium": "Woodcut Print on Paper",
+    "description": "Mt. Shuksan rising above snow-covered conifers. Hand-pulled woodcut print in a limited edition of 8.",
+    "color": "Black / White",
+    "image": "/art/prints/mt-shuksan-trees",
+    "featured": false,
+    "hero": false,
+    "formats": [
+      {
+        "type": "print",
+        "price": 45,
+        "available": true,
+        "detail": "Hand-pulled woodcut print. Limited edition of 8."
+      },
+      {
+        "type": "tee",
+        "price": 28,
+        "available": true,
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
+      }
+    ]
+  },
+  {
     "slug": "ravenwood",
     "title": "Ravenwood #2",
     "medium": "Woodcut Print on Paper",
