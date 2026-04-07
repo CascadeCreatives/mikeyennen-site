@@ -6,13 +6,31 @@ import products from '../data/products.json';
 const originals = products.filter((p: any) => p.formats.some((f: any) => f.type === 'original'));
 const prints = products.filter((p: any) => p.formats.some((f: any) => f.type === 'print'));
 const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === 'tee'));
+
+// Products that need specific object-position to look good at 4/5 crop
+const positionMap: Record<string, string> = {
+  'gravity-rasta':  'center top',
+  'lbs-blue-1':     'center top',
+  'lbs-blue-2':     'center top',
+  'lbs-blue-3':     'center top',
+  'lbs-blue-4':     'center top',
+  'lbs-blue-5':     'center top',
+  'waterfall-bw':   'center top',
+  'mountain-ridge': 'center center',
+  'tradition':      'center center',
+};
 ---
 
-<BaseLayout title="Shop — Mikey Ennen">
+<BaseLayout
+  title="Shop — Mikey Ennen"
+  description="Original artwork, hand-pulled prints, and wearable art by Mikey Ennen. Rooted in the Pacific Northwest."
+  ogImage="/art/prints/sasquatch-green-hero.jpg"
+>
 
   <section class="page-hero">
     <div class="page-hero__bg">
-      <img src="/art/prints/nautical-color-hero.jpg" alt="Mikey Ennen artwork" class="page-hero__img" />
+      <!-- sasquatch-green: 900x620 (1.45:1) — bold landscape, great color -->
+      <img src="/art/prints/sasquatch-green-hero.jpg" alt="Sasquatch — Mikey Ennen print" class="page-hero__img" />
     </div>
     <div class="page-hero__overlay"></div>
     <div class="container page-hero__content">
@@ -38,6 +56,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               category={product.medium}
               href={`/shop/${product.slug}`}
               soldOut={!orig.available}
+              objectPosition={positionMap[product.slug] || 'center'}
             />
           );
         })}
@@ -60,6 +79,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               image={`${product.image}-card.jpg`}
               category={product.color || 'Print'}
               href={`/shop/${product.slug}`}
+              objectPosition={positionMap[product.slug] || 'center'}
             />
           );
         })}
@@ -82,6 +102,7 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
               image={`${product.image}-card.jpg`}
               category="Unisex"
               href={`/shop/${product.slug}`}
+              objectPosition={positionMap[product.slug] || 'center'}
             />
           );
         })}
@@ -111,7 +132,8 @@ const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === '
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.35;
+    object-position: center 30%;
+    opacity: 0.45;
   }
 
   .page-hero__overlay {

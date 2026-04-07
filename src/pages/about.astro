@@ -2,11 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About — Mikey Ennen">
+<BaseLayout
+  title="About — Mikey Ennen"
+  description="Mikey Ennen is an artist and designer based in the Pacific Northwest. Woodcut prints, originals, and wearable art."
+  ogImage="/art/prints/mountain-treeline-teal-hero.jpg"
+>
 
   <section class="page-hero">
     <div class="page-hero__bg">
-      <img src="/art/prints/lbs-blue-1-hero.jpg" alt="Mikey Ennen artwork" class="page-hero__img" />
+      <!-- mountain-treeline-teal: 900x624 (1.44:1) — landscape, teal tones, iconic PNW -->
+      <img src="/art/prints/mountain-treeline-teal-hero.jpg" alt="Mountain Treeline — Mikey Ennen print" class="page-hero__img" />
     </div>
     <div class="page-hero__overlay"></div>
     <div class="container page-hero__content">
@@ -18,7 +23,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section">
     <div class="container about-layout">
       <div class="about-image">
-        <img src="/art/misc/mike-salmon-hero.jpg" alt="Mikey Ennen" class="about-image__photo" />
+        <!--
+          mike-salmon-hero.jpg is 1440x1086 (landscape 4:3) in a portrait container.
+          object-position: center 15% shows head and fish together.
+        -->
+        <img
+          src="/art/misc/mike-salmon-hero.jpg"
+          alt="Mikey Ennen holding a salmon on the water"
+          class="about-image__photo"
+        />
       </div>
       <div class="about-text">
         <h2>Art, nature, and the spaces between</h2>
@@ -45,15 +58,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Gallery strip -->
+  <!-- Gallery strip — curated to avoid ultra-wide or problematic crops -->
   <section class="section about-gallery">
     <div class="container">
       <div class="gallery-strip">
-        <img src="/art/prints/tradition-card.jpg" alt="Tradition" />
-        <img src="/art/prints/ravens-dark-blue-hr-card.jpg" alt="Ravens Dark Blue" />
-        <img src="/art/prints/gravity-rasta-card.jpg" alt="Gravity Rasta" />
-        <img src="/art/originals/octopus-painting-card.jpg" alt="Giant Pacific Octopus" />
-        <img src="/art/prints/kraken-card.jpg" alt="Kraken" />
+        <img src="/art/prints/tradition-card.jpg"          alt="Tradition" />
+        <img src="/art/prints/ravens-dark-blue-hr-card.jpg" alt="Ravens — Dark Blue" />
+        <img src="/art/prints/gravity-rasta-card.jpg"       alt="Gravity — Rasta" />
+        <img src="/art/prints/kraken-card.jpg"              alt="Kraken" />
+        <img src="/art/prints/salmon-run-card.jpg"          alt="Salmon Run" />
       </div>
     </div>
   </section>
@@ -81,7 +94,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     overflow: hidden;
   }
   .page-hero__bg { position: absolute; inset: 0; background: var(--black); }
-  .page-hero__img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+  .page-hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.4; }
   .page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 60%); }
   .page-hero__content { position: relative; z-index: 2; color: var(--white); }
   .page-hero__content h1 { margin-top: 0.5rem; font-weight: 300; }
@@ -94,17 +107,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .about-layout--reverse .about-image { order: 2; }
 
-  .about-image__photo {
-    width: 100%;
+  .about-image {
     aspect-ratio: 3 / 4;
-    object-fit: cover;
+    overflow: hidden;
+    background: var(--cloud);
     position: sticky;
     top: calc(72px + 2rem);
   }
+
+  .about-image__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%; /* shows head + fish on landscape image in portrait frame */
+  }
+
   .about-image__photo--contain {
     object-fit: contain;
     background: var(--charcoal);
-    aspect-ratio: auto;
+    object-position: center center;
   }
 
   .about-text {
@@ -114,6 +135,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .about-text h2 { margin-bottom: 0.5rem; }
 
+  /* Gallery strip — height-fixed, width auto, horizontal scroll */
   .gallery-strip {
     display: flex;
     gap: 1rem;
@@ -123,17 +145,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-bottom: 0.5rem;
   }
   .gallery-strip img {
-    height: 300px;
+    height: 320px;
     width: auto;
     object-fit: cover;
     scroll-snap-align: start;
     flex-shrink: 0;
+    display: block;
   }
 
   @media (max-width: 768px) {
     .about-layout { grid-template-columns: 1fr; }
     .about-layout--reverse .about-image { order: 0; }
-    .about-image__photo { position: static; }
-    .gallery-strip img { height: 200px; }
+    .about-image { position: static; }
+    .gallery-strip img { height: 220px; }
   }
 </style>
