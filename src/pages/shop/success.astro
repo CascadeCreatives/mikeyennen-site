@@ -5,11 +5,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout title="Order Confirmed — Mikey Ennen">
 
   <section class="success-page">
-    <div class="container container--narrow" style="text-align: center;">
+    <div class="container container--narrow success-content">
       <span class="label">Order Confirmed</span>
       <h1>Thank You</h1>
       <p>Your order has been placed. You'll receive a confirmation email from Stripe shortly.</p>
-      <p style="margin-top: 1rem;">Originals ship within 5–7 business days. Prints and tees are printed on demand and typically arrive in 7–12 days.</p>
+      <p>Originals ship within 5–7 business days. Prints and tees are printed on demand and typically arrive in 7–12 days.</p>
       <a href="/shop" class="btn btn--primary" style="margin-top: 2rem;">Back to Shop</a>
     </div>
   </section>
@@ -23,6 +23,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     min-height: 60vh;
     display: flex;
     align-items: center;
+  }
+
+  .success-content {
+    text-align: center;
+  }
+
+  .success-content p {
+    max-width: none;
+    margin: 0 auto;
+    margin-top: 1rem;
   }
 
   .success-page h1 {
