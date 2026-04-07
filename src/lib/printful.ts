@@ -1,5 +1,7 @@
 /**
- * Printful API client for Mikey Ennen site
+ * Printful API client for Cascade Creatives
+ * Each artist site sets PRINTFUL_STORE_ID in their own Vercel env vars.
+ * All sites share the same PRINTFUL_API_KEY (account-level token).
  * Docs: https://developers.printful.com/docs/
  */
 
@@ -11,11 +13,18 @@ function getApiKey(): string {
   return key;
 }
 
+function getStoreId(): string {
+  const id = import.meta.env.PRINTFUL_STORE_ID;
+  if (!id) throw new Error('PRINTFUL_STORE_ID env var is not set');
+  return id;
+}
+
 async function printfulFetch(path: string, options: RequestInit = {}): Promise<any> {
   const res = await fetch(`${PRINTFUL_API_BASE}${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${getApiKey()}`,
+      'X-PF-Store-Id': getStoreId(),
       'Content-Type': 'application/json',
       ...(options.headers || {}),
     },
@@ -69,10 +78,10 @@ export interface CreateOrderPayload {
   };
 }
 
-// ─── Main export ──────────────────────────────────────────────────────────────
+// ─── Main exports ─────────────────────────────────────────────────────────────
 
 export async function createPrintfulOrder(payload: CreateOrderPayload): Promise<{ id: number; status: string }> {
-  console.log('🖨️  Creating Printful order:', JSON.stringify(payload, null, 2));
+  console.log('🖨️  Creating Printful order for store', getStoreId(), JSON.stringify(payload, null, 2));
   const result = await printfulFetch('/orders', {
     method: 'POST',
     body: JSON.stringify(payload),
