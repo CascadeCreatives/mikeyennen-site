@@ -4,7 +4,7 @@ import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
 
 const originals = products.filter((p: any) => p.formats.some((f: any) => f.type === 'original'));
-const prints = products.filter((p: any) => p.formats.some((f: any) => f.type === 'print'));
+const posters = products.filter((p: any) => p.formats.some((f: any) => f.type === 'poster'));
 const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === 'tee'));
 
 // Products that need specific object-position to look good at 4/5 crop
@@ -45,7 +45,7 @@ const badgeMap: Record<string, string> = {
     <div class="container page-hero__content">
       <span class="label">Shop</span>
       <h1>The Collection</h1>
-      <p>Original artwork, hand-pulled prints, and wearable art. Every piece rooted in Pacific Northwest nature.</p>
+      <p>Poster prints and wearable art — printed on demand. Every piece rooted in Pacific Northwest nature.</p>
     </div>
   </section>
 
@@ -54,7 +54,7 @@ const badgeMap: Record<string, string> = {
     <div class="container">
       <div class="filter-tabs">
         <a href="#originals" class="filter-tab">Originals</a>
-        <a href="#prints" class="filter-tab">Prints</a>
+        <a href="#prints" class="filter-tab">Poster Prints</a>
         <a href="#apparel" class="filter-tab">T-Shirts</a>
       </div>
     </div>
@@ -64,7 +64,7 @@ const badgeMap: Record<string, string> = {
   <section class="section" id="originals">
     <div class="container">
       <h2>Originals</h2>
-      <p style="margin-bottom: 2.5rem;">One-of-a-kind pieces — charcoal, ink, and woodcut on paper and panel. Signed by the artist. Once they're gone, they're gone.</p>
+      <p style="margin-bottom: 2.5rem;">One-of-a-kind pieces — charcoal, ink, and woodcut on paper and panel. Currently sold out pending inventory. Check back soon or <a href="/contact" style="color: var(--teal); text-decoration: underline;">inquire about commissions</a>.</p>
       <div class="grid-3">
         {originals.map((product: any) => {
           const orig = product.formats.find((f: any) => f.type === 'original');
@@ -85,20 +85,20 @@ const badgeMap: Record<string, string> = {
     </div>
   </section>
 
-  <!-- PRINTS -->
+  <!-- POSTER PRINTS -->
   <section class="section" id="prints" style="background: var(--cloud);">
     <div class="container">
-      <h2>Printed Art</h2>
-      <p style="margin-bottom: 2.5rem;">Hand-pulled woodcut prints and archival giclées. Signed and numbered.</p>
+      <h2>Poster Prints</h2>
+      <p style="margin-bottom: 2.5rem;">Museum-quality giclée on Enhanced Matte paper. 12×16". Printed on demand and shipped directly to you.</p>
       <div class="grid-3">
-        {prints.map((product: any) => {
-          const print = product.formats.find((f: any) => f.type === 'print');
+        {posters.map((product: any) => {
+          const poster = product.formats.find((f: any) => f.type === 'poster');
           return (
             <ProductCard
               title={product.title}
-              price={`$${print.price}`}
+              price={`$${poster.price}`}
               image={`${product.image}-card.jpg`}
-              category={product.color || 'Print'}
+              category={product.color || 'Poster'}
               href={`/shop/${product.slug}`}
               badge={badgeMap[product.slug]}
               objectPosition={positionMap[product.slug] || 'center'}

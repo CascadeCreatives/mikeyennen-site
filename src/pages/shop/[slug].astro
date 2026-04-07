@@ -11,22 +11,33 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const availableFormats = product.formats.filter((f: any) => f.available);
-const defaultFormat = availableFormats[0];
-const hasOriginal = availableFormats.some((f: any) => f.type === 'original');
-const hasPrint = availableFormats.some((f: any) => f.type === 'print');
-const hasTee = availableFormats.some((f: any) => f.type === 'tee');
+const allFormats = product.formats;
+const availableFormats = allFormats.filter((f: any) => f.available);
+const defaultFormat = availableFormats[0] || allFormats[0];
+const hasOriginal = allFormats.some((f: any) => f.type === 'original');
+const hasPrint = allFormats.some((f: any) => f.type === 'print');
+const hasTee = allFormats.some((f: any) => f.type === 'tee');
+const hasPoster = allFormats.some((f: any) => f.type === 'poster');
 
 // Breadcrumb
 const breadcrumbSection = hasOriginal ? 'Originals' : hasPrint ? 'Prints' : 'Apparel';
 const breadcrumbAnchor = hasOriginal ? '#originals' : hasPrint ? '#prints' : '#apparel';
 
-// Related products: same primary format, exclude self, pick 4
+// Related products: same available format, exclude self, pick 4
 const primaryType = defaultFormat.type;
 const related = (products as any[])
   .filter(p => p.slug !== product.slug && p.formats.some((f: any) => f.type === primaryType && f.available))
   .sort(() => Math.random() - 0.5)
   .slice(0, 4);
+
+// Format label helper
+function fmtLabel(type: string, f?: any): string {
+  if (type === 'tee') return 'T-Shirt';
+  if (type === 'poster') return f?.label || 'Poster';
+  if (type === 'print') return f?.label || 'Print';
+  if (type === 'original') return 'Original';
+  return type;
+}
 ---
 
 <BaseLayout title={`${product.title} — Mikey Ennen`} description={product.description}>
@@ -56,7 +67,13 @@ const related = (products as any[])
               <span class="image-badge image-badge--warm" data-show="original">One of a Kind</span>
             )}
             {defaultFormat.type === 'print' && (
-              <span class="image-badge image-badge--warm" data-show="print">Signed & Numbered</span>
+              <span class="image-badge image-badge--warm" data-show="print">Hand-Pulled Edition</span>
+            )}
+            {defaultFormat.type === 'poster' && (
+              <span class="image-badge" data-show="poster">Print on Demand</span>
+            )}
+            {!defaultFormat.available && (
+              <span class="image-badge image-badge--sold" id="soldBadge">Sold Out</span>
             )}
           </div>
         </div>
@@ -72,17 +89,23 @@ const related = (products as any[])
         <div class="format-section">
           <span class="field-label">Select Format</span>
           <div class="format-selector" id="formatSelector">
-            {availableFormats.map((f: any, i: number) => {
-              const label = f.type === 'tee' ? 'T-Shirt' : f.type === 'print' ? 'Print' : 'Original';
+            {allFormats.map((f: any, i: number) => {
+              const label = fmtLabel(f.type, f);
+              const isDefault = f.type === defaultFormat.type;
               return (
                 <button
-                  class:list={['format-btn', { active: i === 0 }]}
+                  class:list={['format-btn', { active: isDefault, 'format-btn--sold': !f.available }]}
                   data-format={f.type}
                   data-price={f.price}
                   data-detail={f.detail}
+                  data-available={f.available ? 'true' : 'false'}
                 >
                   <span class="format-label">{label}</span>
-                  <span class="format-price">${f.price}</span>
+                  {f.available ? (
+                    <span class="format-price">${f.price}</span>
+                  ) : (
+                    <span class="format-sold-tag">Sold Out</span>
+                  )}
                 </button>
               );
             })}
@@ -93,7 +116,7 @@ const related = (products as any[])
         <div class="context-badges" id="contextBadges">
           {hasPrint && (
             <div class="badge-row" data-show="print" style={defaultFormat.type === 'print' ? '' : 'display:none'}>
-              <span class="ctx-badge">Signed & Numbered</span>
+              <span class="ctx-badge">Hand-Pulled Edition</span>
               <span class="ctx-badge">Archival Paper</span>
               <span class="ctx-badge">12×16"</span>
             </div>
@@ -108,6 +131,13 @@ const related = (products as any[])
             <div class="badge-row" data-show="tee" style={defaultFormat.type === 'tee' ? '' : 'display:none'}>
               <span class="ctx-badge">Unisex · True to Size</span>
               <span class="ctx-badge">Premium Cotton</span>
+            </div>
+          )}
+          {hasPoster && (
+            <div class="badge-row" data-show="poster" style={defaultFormat.type === 'poster' ? '' : 'display:none'}>
+              <span class="ctx-badge">Enhanced Matte</span>
+              <span class="ctx-badge">12×16"</span>
+              <span class="ctx-badge">Print on Demand</span>
             </div>
           )}
         </div>
@@ -127,16 +157,22 @@ const related = (products as any[])
 
         <!-- Price -->
         <div class="price-display">
-          <span class="price-amount" id="priceAmount">${defaultFormat.price}</span>
+          <span class="price-amount" id="priceAmount">{defaultFormat.available ? `$${defaultFormat.price}` : ''}</span>
         </div>
 
-        <!-- Buy button -->
-        <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug}>
+        <!-- Buy button (available formats) -->
+        <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug} style={defaultFormat.available ? '' : 'display:none'}>
           Buy Now — <span id="buyPrice">${defaultFormat.price}</span>
         </button>
 
+        <!-- Sold out notice (unavailable formats) -->
+        <div class="sold-out-notice" id="soldNotice" style={defaultFormat.available ? 'display:none' : ''}>
+          <span class="sold-out-badge">Sold Out</span>
+          <p class="sold-out-text" id="soldReasonText">{(allFormats.find((f:any) => f.type === defaultFormat.type) as any)?.soldOutReason || 'Currently unavailable'}</p>
+        </div>
+
         <!-- Trust line -->
-        <div class="trust-line">
+        <div class="trust-line" id="trustLine" style={defaultFormat.available ? '' : 'display:none'}>
           <span>🔒 Secure checkout via Stripe</span>
           <span class="trust-sep">·</span>
           <span>Ships in 3–5 days</span>
@@ -145,18 +181,36 @@ const related = (products as any[])
         <!-- ═══ Detail Accordions ═══ -->
         <div class="accordions">
 
-          <!-- Print details -->
+          <!-- Print details (hand-pulled — sold out) -->
           {hasPrint && (
             <div class="accordion-group" data-show="print" style={defaultFormat.type === 'print' ? '' : 'display:none'}>
               <details class="accordion" open>
-                <summary class="accordion-trigger">Print Details</summary>
+                <summary class="accordion-trigger">Hand-Pulled Print Details</summary>
                 <div class="accordion-content">
-                  <p class="accordion-intro">Each print is pulled directly from the original carved woodcut block. Slight variations between pulls make every print unique.</p>
+                  <p class="accordion-intro">Each print was pulled directly from the original carved woodcut block. Slight variations between pulls made every print unique. These limited editions are now sold out.</p>
                   <dl class="detail-grid">
                     <dt>Method</dt><dd>Hand-pulled woodcut / archival giclée</dd>
                     <dt>Paper</dt><dd>Enhanced Matte — archival quality</dd>
                     <dt>Size</dt><dd>12 × 16"</dd>
                     <dt>Edition</dt><dd>Signed and numbered by the artist</dd>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          )}
+
+          <!-- Poster details (POD) -->
+          {hasPoster && (
+            <div class="accordion-group" data-show="poster" style={defaultFormat.type === 'poster' ? '' : 'display:none'}>
+              <details class="accordion" open>
+                <summary class="accordion-trigger">Poster Details</summary>
+                <div class="accordion-content">
+                  <p class="accordion-intro">Museum-quality giclée reproduction on archival Enhanced Matte paper. Printed on demand by Printful — each poster is made to order just for you.</p>
+                  <dl class="detail-grid">
+                    <dt>Paper</dt><dd>Enhanced Matte — 189 gsm, archival quality</dd>
+                    <dt>Print</dt><dd>Giclée — rich color, sharp detail</dd>
+                    <dt>Size</dt><dd>12 × 16"</dd>
+                    <dt>Finish</dt><dd>Matte — no glare, gallery-ready</dd>
                   </dl>
                 </div>
               </details>
@@ -211,8 +265,10 @@ const related = (products as any[])
                 {defaultFormat.type === 'original'
                   ? 'Originals are professionally packed and shipped insured via UPS. Allow 5–7 business days. All sales final on original artwork.'
                   : defaultFormat.type === 'print'
-                    ? 'Prints ship flat in rigid mailers within 3–5 business days via USPS Priority. May be returned within 14 days if undamaged and in original packaging.'
-                    : 'Tees ship within 5–7 business days. Printed on demand — allow extra time for production. May be exchanged for a different size within 14 days if unworn.'}
+                    ? 'Hand-pulled prints shipped flat in rigid mailers via USPS Priority. These editions are now sold out.'
+                    : defaultFormat.type === 'poster'
+                      ? 'Posters are printed on demand and ship within 4–8 business days. Ships flat in rigid mailer via standard shipping. May be returned within 30 days if undamaged.'
+                      : 'Tees ship within 5–7 business days. Printed on demand — allow extra time for production. May be exchanged for a different size within 14 days if unworn.'}
               </p>
             </div>
           </details>
@@ -302,8 +358,24 @@ const related = (products as any[])
   }
   .format-btn:hover { border-color: var(--charcoal); }
   .format-btn.active { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
+  .format-btn--sold { opacity: 0.55; border-style: dashed; }
+  .format-btn--sold.active { background: var(--stone); border-color: var(--stone); color: var(--white); opacity: 0.8; }
+  .format-sold-tag { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); }
+  .format-btn--sold.active .format-sold-tag { color: var(--fog); }
   .format-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
   .format-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+
+  .sold-out-notice {
+    display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 1.5rem;
+    border: 1px dashed var(--mist); background: var(--cloud); margin-bottom: 1rem;
+  }
+  .sold-out-badge {
+    display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--white); background: var(--stone);
+    padding: 0.3rem 0.7rem; width: fit-content;
+  }
+  .sold-out-text { font-size: 0.85rem; color: var(--stone); margin: 0; }
+  .image-badge--sold { background: rgba(140,140,140,0.85); }
 
   .context-badges { margin-bottom: 1.25rem; min-height: 2rem; }
   .badge-row { display: flex; flex-wrap: wrap; gap: 0.4rem; animation: fadeSlide 0.25s ease; }
@@ -386,11 +458,23 @@ const related = (products as any[])
   const priceAmount = document.getElementById('priceAmount');
   const buyPrice = document.getElementById('buyPrice');
   const shippingText = document.getElementById('shippingText');
+  const buyBtn = document.getElementById('buyBtn') as HTMLButtonElement;
+  const soldNotice = document.getElementById('soldNotice');
+  const soldReasonText = document.getElementById('soldReasonText');
+  const soldBadge = document.getElementById('soldBadge');
+  const trustLine = document.getElementById('trustLine');
+  const overlay = document.getElementById('loadingOverlay');
 
   const shippingCopy: Record<string, string> = {
     original: 'Originals are professionally packed and shipped insured via UPS. Allow 5–7 business days. All sales final on original artwork.',
-    print: 'Prints ship flat in rigid mailers within 3–5 business days via USPS Priority. May be returned within 14 days if undamaged and in original packaging.',
+    print: 'Hand-pulled prints shipped flat in rigid mailers via USPS Priority. These editions are now sold out.',
+    poster: 'Posters are printed on demand and ship within 4–8 business days. Ships flat in rigid mailer via standard shipping. May be returned within 30 days if undamaged.',
     tee: 'Tees ship within 5–7 business days. Printed on demand — allow extra time for production. May be exchanged for a different size within 14 days if unworn.',
+  };
+
+  const soldOutReasons: Record<string, string> = {
+    original: 'Pending inventory — check back soon',
+    print: 'Limited edition — sold out',
   };
 
   function showForFormat(selector: string, format: string) {
@@ -404,13 +488,26 @@ const related = (products as any[])
       formatBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const format = btn.getAttribute('data-format') || 'print';
+      const format = btn.getAttribute('data-format') || 'poster';
       const price = btn.getAttribute('data-price') || '';
+      const isAvailable = btn.getAttribute('data-available') === 'true';
 
-      if (priceAmount) priceAmount.textContent = '$' + price;
+      // Price display
+      if (priceAmount) priceAmount.textContent = isAvailable ? '$' + price : '';
       if (buyPrice) buyPrice.textContent = '$' + price;
+
+      // Show/hide buy vs sold-out
+      if (buyBtn) buyBtn.style.display = isAvailable ? '' : 'none';
+      if (soldNotice) {
+        soldNotice.style.display = isAvailable ? 'none' : '';
+        if (soldReasonText) soldReasonText.textContent = soldOutReasons[format] || 'Currently unavailable';
+      }
+      if (trustLine) trustLine.style.display = isAvailable ? '' : 'none';
+      if (soldBadge) soldBadge.style.display = isAvailable ? 'none' : '';
+
+      // Size picker only for tees
       if (sizePicker) sizePicker.style.display = format === 'tee' ? '' : 'none';
-      if (shippingText) shippingText.textContent = shippingCopy[format] || shippingCopy.print;
+      if (shippingText) shippingText.textContent = shippingCopy[format] || shippingCopy.poster;
 
       showForFormat('#contextBadges', format);
       showForFormat('#imageBadges', format);
@@ -436,15 +533,16 @@ const related = (products as any[])
   });
 
   // Buy button
-  const buyBtn = document.getElementById('buyBtn') as HTMLButtonElement;
-  const overlay = document.getElementById('loadingOverlay');
-
   buyBtn?.addEventListener('click', async () => {
     const activeFormat = document.querySelector('.format-btn.active');
     if (!activeFormat) return;
+    if (activeFormat.getAttribute('data-available') !== 'true') return;
 
     const slug = buyBtn.dataset.slug;
     const format = activeFormat.getAttribute('data-format');
+
+    // Map poster to the checkout format name
+    const checkoutFormat = format === 'poster' ? 'poster' : format;
 
     let size: string | null = null;
     if (format === 'tee') {
@@ -464,7 +562,7 @@ const related = (products as any[])
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, format, quantity: 1, ...(size ? { size } : {}) }),
+        body: JSON.stringify({ slug, format: checkoutFormat, quantity: 1, ...(size ? { size } : {}) }),
       });
       const data = await res.json();
       if (data.url) {

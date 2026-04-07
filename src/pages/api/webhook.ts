@@ -41,8 +41,8 @@ export const POST: APIRoute = async ({ request }) => {
       }
     }
 
-    // ── POD (print / tee): auto-create Printful order ─────────────────────────
-    if (format === 'print' || format === 'tee') {
+    // ── POD (poster / print / tee): auto-create Printful order ─────────────────
+    if (format === 'poster' || format === 'print' || format === 'tee') {
       try {
         await handlePrintfulOrder({ session, slug, format, size });
       } catch (err: any) {
@@ -91,7 +91,7 @@ async function handlePrintfulOrder({
 
   // 2. Resolve variant ID
   let variantId: number;
-  if (format === 'print') {
+  if (format === 'print' || format === 'poster') {
     variantId = PRINT_VARIANT_ID;
   } else if (format === 'tee') {
     if (!size) throw new Error(`Tee order for "${slug}" is missing size in metadata`);
@@ -101,7 +101,8 @@ async function handlePrintfulOrder({
   }
 
   // 3. Resolve print file URL
-  const fileUrl = getPrintFileUrl(slug, format as 'print' | 'tee');
+  const fileFormat = format === 'poster' ? 'print' : format;
+  const fileUrl = getPrintFileUrl(slug, fileFormat as 'print' | 'tee');
   if (!fileUrl) {
     throw new Error(
       `No print file configured for slug "${slug}" / format "${format}". ` +
@@ -110,9 +111,11 @@ async function handlePrintfulOrder({
   }
 
   // 4. Create Printful order
-  const itemName = format === 'print'
-    ? `${slug} — Archival Print 12×16"`
-    : `${slug} — Bella+Canvas 3001 Tee (${size})`;
+  const itemName = format === 'poster'
+    ? `${slug} — Enhanced Matte Poster 12×16"`
+    : format === 'print'
+      ? `${slug} — Archival Print 12×16"`
+      : `${slug} — Bella+Canvas 3001 Tee (${size})`;
 
   await createPrintfulOrder({
     recipient,

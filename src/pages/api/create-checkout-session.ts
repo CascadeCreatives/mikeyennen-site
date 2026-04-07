@@ -26,11 +26,11 @@ export const POST: APIRoute = async ({ request }) => {
     const applicationFee = Math.round(totalAmount * (PLATFORM_FEE_PERCENT / 100));
 
     // Format label
-    const formatLabel = format === 'tee' ? 'T-Shirt' : format === 'print' ? 'Print' : 'Original';
+    const formatLabel = format === 'tee' ? 'T-Shirt' : format === 'print' ? 'Print' : format === 'poster' ? 'Poster Print' : 'Original';
     const productName = `${product.title} \u2014 ${formatLabel}`;
 
     // POD items need shipping address
-    const needsShipping = format === 'print' || format === 'tee';
+    const needsShipping = format === 'print' || format === 'tee' || format === 'poster';
 
     // Build session config
     const sessionConfig: any = {
