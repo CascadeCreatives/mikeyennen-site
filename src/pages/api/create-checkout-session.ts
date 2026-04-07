@@ -6,7 +6,7 @@ import products from '../../data/products.json';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const { slug, format, quantity = 1 } = await request.json();
+    const { slug, format, quantity = 1, size } = await request.json();
 
     // Find product
     const product = products.find((p: any) => p.slug === slug);
@@ -59,6 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
         slug,
         format,
         artist: 'mikey-ennen',
+        ...(size ? { size } : {}),
       },
       success_url: `${SITE_URL}/shop/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}/shop/${slug}`,
