@@ -35,7 +35,7 @@ const noteworthy = ['ravens-dark-blue-hr', 'salmon-run', 'waterfall-teal']
     <div class="container hero__content">
       <span class="label fade-up">Artist & Designer</span>
       <h1 class="fade-up fade-up-d1">Mikey Ennen</h1>
-      <p class="hero__sub fade-up fade-up-d2">Original artwork, prints, and apparel rooted in the Pacific Northwest.</p>
+      <p class="hero__sub fade-up fade-up-d2">Hand-carved woodcut art from the Pacific Northwest. Originals, signed prints, and wearable art.</p>
       <div class="hero__ctas fade-up fade-up-d3">
         <a href="/shop" class="btn btn--primary">Shop the Collection</a>
         <a href="/shop#originals" class="btn btn--outline-light">View Originals</a>
@@ -138,15 +138,15 @@ const noteworthy = ['ravens-dark-blue-hr', 'salmon-run', 'waterfall-teal']
     </div>
   </section>
 
-  <!-- ════════ 6. NEW & NOTEWORTHY ════════ -->
+  <!-- ════════ 6. COLLECTOR FAVORITES ════════ -->
   <section class="section featured-products">
     <div class="container">
       <div class="section-header">
         <span class="label">Shop</span>
-        <h2>New & Noteworthy</h2>
+        <h2>Collector Favorites</h2>
       </div>
       <div class="grid-3">
-        {noteworthy.map((product: any) => {
+        {noteworthy.map((product: any, i: number) => {
           const lowestPrice = Math.min(...product.formats.map((f: any) => f.price));
           const formatLabels = product.formats
             .filter((f: any) => f.available)
@@ -159,6 +159,7 @@ const noteworthy = ['ravens-dark-blue-hr', 'salmon-run', 'waterfall-teal']
               image={`${product.image}-card.jpg`}
               category={formatLabels}
               href={`/shop/${product.slug}`}
+              badge={i === 0 ? 'New' : i === 1 ? 'Popular' : undefined}
             />
           );
         })}

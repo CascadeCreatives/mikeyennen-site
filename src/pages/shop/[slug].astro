@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
 import products from '../../data/products.json';
 
 export function getStaticPaths() {
@@ -11,46 +12,109 @@ export function getStaticPaths() {
 
 const { product } = Astro.props;
 const availableFormats = product.formats.filter((f: any) => f.available);
+const defaultFormat = availableFormats[0];
+const hasOriginal = availableFormats.some((f: any) => f.type === 'original');
+const hasPrint = availableFormats.some((f: any) => f.type === 'print');
+const hasTee = availableFormats.some((f: any) => f.type === 'tee');
+
+// Breadcrumb
+const breadcrumbSection = hasOriginal ? 'Originals' : hasPrint ? 'Prints' : 'Apparel';
+const breadcrumbAnchor = hasOriginal ? '#originals' : hasPrint ? '#prints' : '#apparel';
+
+// Related products: same primary format, exclude self, pick 4
+const primaryType = defaultFormat.type;
+const related = (products as any[])
+  .filter(p => p.slug !== product.slug && p.formats.some((f: any) => f.type === primaryType && f.available))
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 4);
 ---
 
 <BaseLayout title={`${product.title} — Mikey Ennen`} description={product.description}>
 
+  <!-- Breadcrumb -->
+  <div class="product-breadcrumb">
+    <div class="container">
+      <nav class="breadcrumb-nav">
+        <a href="/shop">Shop</a>
+        <span class="breadcrumb-sep">→</span>
+        <a href={`/shop${breadcrumbAnchor}`}>{breadcrumbSection}</a>
+        <span class="breadcrumb-sep">→</span>
+        <span class="breadcrumb-current">{product.title}</span>
+      </nav>
+    </div>
+  </div>
+
   <section class="product-page">
     <div class="container product-grid">
 
-      <!-- Image -->
-      <div class="product-image">
-        <img src={`${product.image}-card.jpg`} alt={product.title} />
+      <!-- ═══ Image Zone ═══ -->
+      <div class="product-image-zone">
+        <div class="product-image">
+          <img src={`${product.image}-card.jpg`} alt={product.title} />
+          <div class="image-badges" id="imageBadges">
+            {defaultFormat.type === 'original' && (
+              <span class="image-badge image-badge--warm" data-show="original">One of a Kind</span>
+            )}
+            {defaultFormat.type === 'print' && (
+              <span class="image-badge image-badge--warm" data-show="print">Signed & Numbered</span>
+            )}
+          </div>
+        </div>
       </div>
 
-      <!-- Details -->
+      <!-- ═══ Purchase Zone ═══ -->
       <div class="product-details">
         <span class="label">{product.medium}</span>
         <h1>{product.title}</h1>
         <p class="product-description">{product.description}</p>
 
         <!-- Format Selector -->
-        <div class="format-selector" id="formatSelector">
-          {availableFormats.map((f: any, i: number) => (
-            <button
-              class:list={['format-btn', { active: i === 0 }]}
-              data-format={f.type}
-              data-price={f.price}
-              data-detail={f.detail}
-            >
-              <span class="format-label">
-                {f.type === 'tee' ? 'T-Shirt' : f.type === 'print' ? 'Print' : 'Original'}
-              </span>
-              <span class="format-price">${f.price}</span>
-            </button>
-          ))}
+        <div class="format-section">
+          <span class="field-label">Select Format</span>
+          <div class="format-selector" id="formatSelector">
+            {availableFormats.map((f: any, i: number) => {
+              const label = f.type === 'tee' ? 'T-Shirt' : f.type === 'print' ? 'Print' : 'Original';
+              return (
+                <button
+                  class:list={['format-btn', { active: i === 0 }]}
+                  data-format={f.type}
+                  data-price={f.price}
+                  data-detail={f.detail}
+                >
+                  <span class="format-label">{label}</span>
+                  <span class="format-price">${f.price}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <p class="format-detail" id="formatDetail">{availableFormats[0]?.detail}</p>
+        <!-- Contextual badges per format type -->
+        <div class="context-badges" id="contextBadges">
+          {hasPrint && (
+            <div class="badge-row" data-show="print" style={defaultFormat.type === 'print' ? '' : 'display:none'}>
+              <span class="ctx-badge">Signed & Numbered</span>
+              <span class="ctx-badge">Archival Paper</span>
+              <span class="ctx-badge">12×16"</span>
+            </div>
+          )}
+          {hasOriginal && (
+            <div class="badge-row" data-show="original" style={defaultFormat.type === 'original' ? '' : 'display:none'}>
+              <span class="ctx-badge ctx-badge--warm">One of a Kind</span>
+              <span class="ctx-badge">{product.medium}</span>
+            </div>
+          )}
+          {hasTee && (
+            <div class="badge-row" data-show="tee" style={defaultFormat.type === 'tee' ? '' : 'display:none'}>
+              <span class="ctx-badge">Unisex · True to Size</span>
+              <span class="ctx-badge">Premium Cotton</span>
+            </div>
+          )}
+        </div>
 
-        <!-- Size picker — shown only when Tee is selected -->
-        <div class="size-picker" id="sizePicker">
-          <p class="size-label">Size</p>
+        <!-- Size picker — ONLY visible when Tee is selected -->
+        <div class="size-picker" id="sizePicker" style={defaultFormat.type === 'tee' ? '' : 'display:none'}>
+          <span class="field-label">Select Size</span>
           <div class="size-options">
             <button class="size-btn" data-size="S">S</button>
             <button class="size-btn" data-size="M">M</button>
@@ -61,9 +125,99 @@ const availableFormats = product.formats.filter((f: any) => f.available);
           <p class="size-error" id="sizeError">Please select a size.</p>
         </div>
 
+        <!-- Price -->
+        <div class="price-display">
+          <span class="price-amount" id="priceAmount">${defaultFormat.price}</span>
+        </div>
+
+        <!-- Buy button -->
         <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug}>
-          Buy Now
+          Buy Now — <span id="buyPrice">${defaultFormat.price}</span>
         </button>
+
+        <!-- Trust line -->
+        <div class="trust-line">
+          <span>🔒 Secure checkout via Stripe</span>
+          <span class="trust-sep">·</span>
+          <span>Ships in 3–5 days</span>
+        </div>
+
+        <!-- ═══ Detail Accordions ═══ -->
+        <div class="accordions">
+
+          <!-- Print details -->
+          {hasPrint && (
+            <div class="accordion-group" data-show="print" style={defaultFormat.type === 'print' ? '' : 'display:none'}>
+              <details class="accordion" open>
+                <summary class="accordion-trigger">Print Details</summary>
+                <div class="accordion-content">
+                  <p class="accordion-intro">Each print is pulled directly from the original carved woodcut block. Slight variations between pulls make every print unique.</p>
+                  <dl class="detail-grid">
+                    <dt>Method</dt><dd>Hand-pulled woodcut / archival giclée</dd>
+                    <dt>Paper</dt><dd>Enhanced Matte — archival quality</dd>
+                    <dt>Size</dt><dd>12 × 16"</dd>
+                    <dt>Edition</dt><dd>Signed and numbered by the artist</dd>
+                  </dl>
+                </div>
+              </details>
+              <details class="accordion">
+                <summary class="accordion-trigger">Framing Guide</summary>
+                <div class="accordion-content">
+                  <p>Looks best in a simple float frame or gallery frame in black or natural wood. A 1" mat gives the print breathing room. UV-protective glass will keep colors true for decades.</p>
+                </div>
+              </details>
+            </div>
+          )}
+
+          <!-- Original details -->
+          {hasOriginal && (
+            <div class="accordion-group" data-show="original" style={defaultFormat.type === 'original' ? '' : 'display:none'}>
+              <details class="accordion" open>
+                <summary class="accordion-trigger">About This Original</summary>
+                <div class="accordion-content">
+                  <p class="accordion-intro">This is the original — one of a kind, made entirely by hand. Once it's gone, it's gone.</p>
+                  <dl class="detail-grid">
+                    <dt>Medium</dt><dd>{product.medium}</dd>
+                    <dt>Signed</dt><dd>Yes — signed by the artist</dd>
+                    <dt>Status</dt><dd>One of a kind — the only one</dd>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          )}
+
+          <!-- Tee details -->
+          {hasTee && (
+            <div class="accordion-group" data-show="tee" style={defaultFormat.type === 'tee' ? '' : 'display:none'}>
+              <details class="accordion" open>
+                <summary class="accordion-trigger">Garment Details</summary>
+                <div class="accordion-content">
+                  <dl class="detail-grid">
+                    <dt>Garment</dt><dd>Bella+Canvas 3001 — 4.2 oz ringspun cotton</dd>
+                    <dt>Fit</dt><dd>Unisex, true to size</dd>
+                    <dt>Print</dt><dd>Direct-to-garment (DTG)</dd>
+                    <dt>Care</dt><dd>Machine wash cold, tumble dry low. Print won't crack or peel.</dd>
+                  </dl>
+                </div>
+              </details>
+            </div>
+          )}
+
+          <!-- Shipping & Returns (always visible) -->
+          <details class="accordion">
+            <summary class="accordion-trigger">Shipping & Returns</summary>
+            <div class="accordion-content">
+              <p id="shippingText">
+                {defaultFormat.type === 'original'
+                  ? 'Originals are professionally packed and shipped insured via UPS. Allow 5–7 business days. All sales final on original artwork.'
+                  : defaultFormat.type === 'print'
+                    ? 'Prints ship flat in rigid mailers within 3–5 business days via USPS Priority. May be returned within 14 days if undamaged and in original packaging.'
+                    : 'Tees ship within 5–7 business days. Printed on demand — allow extra time for production. May be exchanged for a different size within 14 days if unworn.'}
+              </p>
+            </div>
+          </details>
+
+        </div>
 
         {product.color && (
           <p class="product-meta">Color: {product.color}</p>
@@ -71,6 +225,31 @@ const availableFormats = product.formats.filter((f: any) => f.available);
       </div>
     </div>
   </section>
+
+  <!-- ═══ You May Also Like ═══ -->
+  {related.length > 0 && (
+    <section class="section related-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">You May Also Like</span>
+        </div>
+        <div class="grid-4 related-grid">
+          {related.map((p: any) => {
+            const fmt = p.formats.find((f: any) => f.type === primaryType) || p.formats[0];
+            return (
+              <ProductCard
+                title={p.title}
+                price={`$${fmt.price}`}
+                image={`${p.image}-card.jpg`}
+                category={p.medium}
+                href={`/shop/${p.slug}`}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
@@ -80,246 +259,183 @@ const availableFormats = product.formats.filter((f: any) => f.available);
 </BaseLayout>
 
 <style>
-  .product-page {
-    padding-top: calc(72px + var(--space-lg));
-    padding-bottom: var(--space-xl);
+  .product-breadcrumb {
+    padding-top: calc(72px + 1.25rem);
+  }
+  .breadcrumb-nav {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.05em;
+  }
+  .breadcrumb-nav a { color: var(--stone); transition: color 0.2s; }
+  .breadcrumb-nav a:hover { color: var(--charcoal); }
+  .breadcrumb-sep { color: var(--mist); font-size: 0.65rem; }
+  .breadcrumb-current { color: var(--charcoal); }
+
+  .product-page { padding-top: var(--space-md); padding-bottom: var(--space-xl); }
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
+
+  .product-image { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--cloud); }
+  .product-image img { width: 100%; height: 100%; object-fit: cover; }
+  .image-badges { position: absolute; bottom: 1rem; left: 1rem; display: flex; gap: 0.5rem; }
+  .image-badge {
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.35rem 0.75rem; background: rgba(10,10,10,0.75);
+    color: var(--white); backdrop-filter: blur(8px);
+  }
+  .image-badge--warm { background: rgba(139,110,50,0.85); }
+
+  .product-details h1 { margin-top: 0.5rem; margin-bottom: 0.75rem; font-size: clamp(2rem, 4vw, 3rem); }
+  .product-description { margin-bottom: var(--space-md); max-width: 48ch; }
+
+  .field-label {
+    display: block; font-family: var(--font-body); font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--fog); margin-bottom: 0.6rem;
   }
 
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-    align-items: start;
-  }
-
-  .product-image {
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    background: var(--cloud);
-  }
-
-  .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .product-details {
-    padding-top: var(--space-md);
-  }
-
-  .product-details h1 {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: clamp(2rem, 4vw, 3rem);
-  }
-
-  .product-description {
-    margin-bottom: var(--space-md);
-  }
-
-  .format-selector {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-  }
-
+  .format-section { margin-bottom: 1.25rem; }
+  .format-selector { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .format-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 1rem 1.5rem;
-    background: transparent;
-    border: 1px solid var(--mist);
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--font-body);
-    min-width: 100px;
+    display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+    padding: 1rem 1.5rem; background: transparent; border: 1px solid var(--mist);
+    cursor: pointer; transition: all 0.2s; font-family: var(--font-body); min-width: 100px;
   }
+  .format-btn:hover { border-color: var(--charcoal); }
+  .format-btn.active { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
+  .format-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .format-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
 
-  .format-btn:hover {
-    border-color: var(--charcoal);
+  .context-badges { margin-bottom: 1.25rem; min-height: 2rem; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 0.4rem; animation: fadeSlide 0.25s ease; }
+  .ctx-badge {
+    font-family: var(--font-body); font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--mist); color: var(--stone);
   }
+  .ctx-badge--warm { border-color: rgba(139,110,50,0.4); color: #8b6e32; background: rgba(139,110,50,0.06); }
 
-  .format-btn.active {
-    border-color: var(--charcoal);
-    background: var(--charcoal);
-    color: var(--white);
-  }
+  @keyframes fadeSlide { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
 
-  .format-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .format-price {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
-
-  .format-detail {
-    font-size: 0.85rem;
-    color: var(--stone);
-    margin-bottom: var(--space-md);
-    min-height: 1.5em;
-  }
-
-  /* ── Size picker ─────────────────────────────────────── */
-  .size-picker {
-    display: none;
-    margin-bottom: var(--space-md);
-  }
-
-  .size-picker.visible {
-    display: block;
-  }
-
-  .size-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 0.5rem;
-  }
-
-  .size-options {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
+  .size-picker { margin-bottom: 1.25rem; animation: fadeSlide 0.25s ease; }
+  .size-options { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .size-btn {
-    padding: 0.5rem 0.9rem;
-    background: transparent;
-    border: 1px solid var(--mist);
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    transition: all 0.2s;
+    width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center;
+    background: transparent; border: 1px solid var(--mist); cursor: pointer;
+    font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.05em; transition: all 0.2s;
   }
+  .size-btn:hover { border-color: var(--charcoal); }
+  .size-btn.active { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
+  .size-error { display: none; font-size: 0.8rem; color: #c0392b; margin-top: 0.4rem; }
+  .size-error.visible { display: block; }
 
-  .size-btn:hover {
-    border-color: var(--charcoal);
+  .price-display { margin-bottom: 1rem; }
+  .price-amount { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--charcoal); }
+
+  .buy-btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 1.1rem 2rem; }
+
+  .trust-line {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    padding: 0.9rem 0; margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--cloud);
+    font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.04em; color: var(--fog);
   }
+  .trust-sep { color: var(--mist); }
 
-  .size-btn.active {
-    border-color: var(--charcoal);
-    background: var(--charcoal);
-    color: var(--white);
+  .accordion { border-bottom: 1px solid var(--cloud); }
+  .accordion-trigger {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 1rem 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); list-style: none;
   }
+  .accordion-trigger::-webkit-details-marker { display: none; }
+  .accordion-trigger::after { content: '+'; font-size: 1.1rem; font-weight: 300; color: var(--stone); transition: transform 0.2s ease; }
+  details[open] .accordion-trigger::after { transform: rotate(45deg); }
+  .accordion-content { padding-bottom: 1.25rem; }
+  .accordion-content p { font-size: 0.88rem; line-height: 1.7; color: var(--stone); }
+  .accordion-intro { margin-bottom: 1rem; }
+  .detail-grid { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1.25rem; font-size: 0.85rem; line-height: 1.6; }
+  .detail-grid dt { color: var(--fog); font-family: var(--font-body); font-weight: 400; }
+  .detail-grid dd { color: var(--stone); font-family: var(--font-body); margin: 0; }
 
-  .size-error {
-    display: none;
-    font-size: 0.8rem;
-    color: #c0392b;
-    margin-top: 0.4rem;
-  }
+  .product-meta { font-size: 0.8rem; color: var(--fog); margin-top: var(--space-sm); }
 
-  .size-error.visible {
-    display: block;
-  }
+  .related-section { padding-top: var(--space-lg); border-top: 1px solid var(--cloud); }
+  .related-section .section-header { margin-bottom: var(--space-md); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  @media (max-width: 1024px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .grid-4 { grid-template-columns: 1fr; } }
 
-  /* ─────────────────────────────────────────────────────── */
-
-  .buy-btn {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: var(--space-sm);
-    font-size: 0.85rem;
-    padding: 1.1rem 2rem;
-  }
-
-  .product-meta {
-    font-size: 0.8rem;
-    color: var(--fog);
-    margin-top: var(--space-sm);
-  }
-
-  .loading-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(248, 247, 245, 0.95);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    z-index: 9999;
-  }
-
-  .loading-overlay.visible {
-    display: flex;
-  }
-
-  .loading-spinner {
-    width: 32px;
-    height: 32px;
-    border: 2px solid var(--mist);
-    border-top-color: var(--charcoal);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
-
-  .loading-overlay p {
-    font-size: 0.85rem;
-    color: var(--stone);
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
+  .loading-overlay { position: fixed; inset: 0; background: rgba(248,247,245,0.95); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; z-index: 9999; }
+  .loading-overlay.visible { display: flex; }
+  .loading-spinner { width: 32px; height: 32px; border: 2px solid var(--mist); border-top-color: var(--charcoal); border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .loading-overlay p { font-size: 0.85rem; color: var(--stone); }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
   @media (max-width: 768px) {
-    .product-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
+    .product-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+    .product-breadcrumb { padding-top: calc(72px + 0.75rem); }
   }
 </style>
 
 <script>
-  // ── Format selector ──────────────────────────────────────────────────────────
   const formatBtns = document.querySelectorAll('.format-btn');
-  const detail = document.getElementById('formatDetail');
   const sizePicker = document.getElementById('sizePicker');
   const sizeError = document.getElementById('sizeError');
+  const priceAmount = document.getElementById('priceAmount');
+  const buyPrice = document.getElementById('buyPrice');
+  const shippingText = document.getElementById('shippingText');
+
+  const shippingCopy: Record<string, string> = {
+    original: 'Originals are professionally packed and shipped insured via UPS. Allow 5–7 business days. All sales final on original artwork.',
+    print: 'Prints ship flat in rigid mailers within 3–5 business days via USPS Priority. May be returned within 14 days if undamaged and in original packaging.',
+    tee: 'Tees ship within 5–7 business days. Printed on demand — allow extra time for production. May be exchanged for a different size within 14 days if unworn.',
+  };
+
+  function showForFormat(selector: string, format: string) {
+    document.querySelectorAll(selector + ' [data-show]').forEach((el) => {
+      (el as HTMLElement).style.display = el.getAttribute('data-show') === format ? '' : 'none';
+    });
+  }
 
   formatBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       formatBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-      if (detail) detail.textContent = btn.getAttribute('data-detail') || '';
 
-      // Show/hide size picker
-      const isTee = btn.getAttribute('data-format') === 'tee';
-      sizePicker?.classList.toggle('visible', isTee);
+      const format = btn.getAttribute('data-format') || 'print';
+      const price = btn.getAttribute('data-price') || '';
 
-      // Clear size selection and error when switching formats
+      if (priceAmount) priceAmount.textContent = '$' + price;
+      if (buyPrice) buyPrice.textContent = '$' + price;
+      if (sizePicker) sizePicker.style.display = format === 'tee' ? '' : 'none';
+      if (shippingText) shippingText.textContent = shippingCopy[format] || shippingCopy.print;
+
+      showForFormat('#contextBadges', format);
+      showForFormat('#imageBadges', format);
+
+      // Show/hide accordion groups
+      document.querySelectorAll('.accordion-group').forEach((el) => {
+        (el as HTMLElement).style.display = el.getAttribute('data-show') === format ? '' : 'none';
+      });
+
+      // Clear size selection
       document.querySelectorAll('.size-btn').forEach((s) => s.classList.remove('active'));
       sizeError?.classList.remove('visible');
     });
   });
 
-  // ── Size selector ────────────────────────────────────────────────────────────
-  const sizeBtns = document.querySelectorAll('.size-btn');
-
-  sizeBtns.forEach((btn) => {
+  // Size selector
+  document.querySelectorAll('.size-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      sizeBtns.forEach((b) => b.classList.remove('active'));
+      document.querySelectorAll('.size-btn').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       sizeError?.classList.remove('visible');
     });
   });
 
-  // ── Buy button ───────────────────────────────────────────────────────────────
+  // Buy button
   const buyBtn = document.getElementById('buyBtn') as HTMLButtonElement;
   const overlay = document.getElementById('loadingOverlay');
 
@@ -330,7 +446,6 @@ const availableFormats = product.formats.filter((f: any) => f.available);
     const slug = buyBtn.dataset.slug;
     const format = activeFormat.getAttribute('data-format');
 
-    // Tee requires a size selection
     let size: string | null = null;
     if (format === 'tee') {
       const activeSize = document.querySelector('.size-btn.active');
@@ -351,9 +466,7 @@ const availableFormats = product.formats.filter((f: any) => f.available);
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug, format, quantity: 1, ...(size ? { size } : {}) }),
       });
-
       const data = await res.json();
-
       if (data.url) {
         window.location.href = data.url;
       } else {
@@ -363,7 +476,8 @@ const availableFormats = product.formats.filter((f: any) => f.available);
       console.error('Checkout error:', err);
       alert('Something went wrong. Please try again.');
       buyBtn.disabled = false;
-      buyBtn.textContent = 'Buy Now';
+      const activePrice = document.querySelector('.format-btn.active')?.getAttribute('data-price') || '';
+      buyBtn.innerHTML = 'Buy Now — <span id="buyPrice">$' + activePrice + '</span>';
       overlay?.classList.remove('visible');
     }
   });

@@ -43,6 +43,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Credentials bar -->
+  <section class="credentials-bar">
+    <div class="container">
+      <div class="credentials-grid">
+        <div class="credential">
+          <span class="credential-num">10+</span>
+          <span class="credential-label">Years Making Art</span>
+        </div>
+        <div class="credential">
+          <span class="credential-num">PNW</span>
+          <span class="credential-label">San Juan Islands Based</span>
+        </div>
+        <div class="credential">
+          <span class="credential-num">100%</span>
+          <span class="credential-label">Made by Hand</span>
+        </div>
+        <div class="credential">
+          <span class="credential-num">Liquid Force</span>
+          <span class="credential-label">Artist Series Collaborator</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Product Design Highlight -->
   <section class="section" style="background: var(--cloud);">
     <div class="container about-layout about-layout--reverse">
@@ -50,10 +74,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <img src="/art/misc/wakeboard-design-hero.jpg" alt="Liquid Force Artist Series Wakeboard" class="about-image__photo about-image__photo--contain" />
       </div>
       <div class="about-text">
-        <span class="label">Product Design</span>
+        <span class="label">Collaborations & Product Design</span>
         <h2>Art beyond the wall</h2>
-        <p>Mike's work extends beyond prints and panels. He has designed graphics for Liquid Force wakeboards (Artist Series), event posters for The Summit at Snoqualmie, and has applied his artwork to phone cases, apparel, and other products.</p>
-        <p>His vision for the future includes flat-packed furniture design, snowboard gear lockers, and deeper collaborations with outdoor and lifestyle brands.</p>
+        <p>Mikey's artwork has been featured on Liquid Force wakeboards as part of their Artist Series — a collaboration that put his woodcut-inspired graphics onto professional water sports equipment used by athletes worldwide.</p>
+        <p>He has also designed event collateral for The Summit at Snoqualmie and applied his artwork to phone cases, apparel, and lifestyle products. His process translates naturally to product surfaces — the bold lines and high-contrast compositions that define his prints hold up at any scale.</p>
+        <p>Future collaborations include flat-packed furniture design, snowboard gear lockers, and deeper partnerships with outdoor and lifestyle brands. If you're interested in working with Mikey, <a href="/contact" style="color: var(--teal); text-decoration: underline; text-underline-offset: 2px;">get in touch</a>.</p>
       </div>
     </div>
   </section>
@@ -134,6 +159,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 1.25rem;
   }
   .about-text h2 { margin-bottom: 0.5rem; }
+
+  /* Credentials bar */
+  .credentials-bar {
+    background: var(--charcoal);
+    padding: var(--space-md) 0;
+  }
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    text-align: center;
+  }
+  .credential {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .credential-num {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--teal);
+    letter-spacing: -0.01em;
+  }
+  .credential-label {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fog);
+  }
+  @media (max-width: 768px) {
+    .credentials-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  }
 
   /* Gallery strip — height-fixed, width auto, horizontal scroll */
   .gallery-strip {

@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="FAQ — Mikey Ennen" description="Frequently asked questions about prints, originals, apparel, shipping, and more.">
+
+  <section class="faq-page">
+    <div class="container container--narrow">
+      <span class="label">FAQ</span>
+      <h1>Frequently Asked Questions</h1>
+      <p class="faq-intro">Everything you need to know about ordering artwork, prints, and apparel from Mikey Ennen.</p>
+
+      <!-- Prints -->
+      <div class="faq-group">
+        <h2>Prints</h2>
+
+        <details class="faq-item">
+          <summary>Are prints signed and numbered?</summary>
+          <div class="faq-answer">
+            <p>Yes. Every print is hand-signed and numbered by Mikey. You'll receive a certificate-quality piece ready for framing.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What paper are prints on?</summary>
+          <div class="faq-answer">
+            <p>Prints are produced on Enhanced Matte paper — a heavyweight, archival-quality stock with a smooth finish that holds color beautifully. It's acid-free and designed to last.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between a hand-pulled print and a giclée?</summary>
+          <div class="faq-answer">
+            <p>A hand-pulled print is made by inking the original carved woodcut block and running it through a press by hand. Every pull is slightly unique. A giclée is a high-resolution archival reproduction printed on the same premium paper. Both are signed and numbered.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What size are the prints?</summary>
+          <div class="faq-answer">
+            <p>Most prints are 12 × 16 inches. Specific dimensions are listed on each product page.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How should I frame my print?</summary>
+          <div class="faq-answer">
+            <p>We recommend a simple gallery frame in black or natural wood with a 1-inch mat for breathing room. UV-protective glass will keep colors true for decades. Float frames also look great with these prints.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Originals -->
+      <div class="faq-group">
+        <h2>Originals</h2>
+
+        <details class="faq-item">
+          <summary>What does "one of a kind" mean?</summary>
+          <div class="faq-answer">
+            <p>Originals are the actual artwork — the hand-carved woodcut on cedar, the charcoal drawing, the acrylic painting. There is only one, and once it sells, it's gone permanently. Prints of the same image may still be available.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Are originals shipped safely?</summary>
+          <div class="faq-answer">
+            <p>Absolutely. Originals are professionally packed with rigid corner protection, acid-free tissue, and shipped insured via UPS. We treat every original like the irreplaceable piece it is.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you take commissions?</summary>
+          <div class="faq-answer">
+            <p>Yes — Mikey takes a limited number of commission projects each year. Reach out via the <a href="/contact">contact page</a> with details about what you're looking for, and we'll follow up with availability and pricing.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Apparel -->
+      <div class="faq-group">
+        <h2>T-Shirts</h2>
+
+        <details class="faq-item">
+          <summary>Do shirts fit true to size?</summary>
+          <div class="faq-answer">
+            <p>Yes. Tees are Bella+Canvas 3001 — a unisex fit that runs true to size. If you're between sizes, we'd suggest sizing up for a more relaxed fit.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How are the shirts printed?</summary>
+          <div class="faq-answer">
+            <p>All tees are printed direct-to-garment (DTG) on premium 4.2 oz ringspun cotton. The print is embedded into the fabric — it won't crack, peel, or fade like screen printing can over time.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I care for my shirt?</summary>
+          <div class="faq-answer">
+            <p>Machine wash cold, tumble dry low. Avoid ironing directly on the print. The DTG process is durable — your shirt will hold up through regular wear and washing.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Shipping & Returns -->
+      <div class="faq-group">
+        <h2>Shipping & Returns</h2>
+
+        <details class="faq-item">
+          <summary>How long does shipping take?</summary>
+          <div class="faq-answer">
+            <p>Prints ship within 3–5 business days via USPS Priority in rigid mailers. T-shirts are printed on demand and ship within 5–7 business days. Originals are professionally packed and ship within 5–7 business days via UPS, insured.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you ship internationally?</summary>
+          <div class="faq-answer">
+            <p>Currently we ship within the United States. If you're outside the US and interested in a piece, reach out via the <a href="/contact">contact page</a> and we'll see what we can arrange.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is the return policy?</summary>
+          <div class="faq-answer">
+            <p>Prints and tees may be returned or exchanged within 14 days if undamaged and in original packaging. T-shirts must be unworn and unwashed. All sales are final on original artwork. Contact us to arrange any return.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is checkout secure?</summary>
+          <div class="faq-answer">
+            <p>Yes. All payments are processed through Stripe — the same payment infrastructure used by companies like Amazon, Google, and Shopify. Your card information never touches our servers.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- CTA -->
+      <div class="faq-cta">
+        <p>Still have questions?</p>
+        <a href="/contact" class="btn btn--primary">Get in Touch</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .faq-page {
+    padding-top: calc(72px + var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
+
+  .faq-page h1 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+
+  .faq-intro {
+    margin-bottom: var(--space-lg);
+    max-width: 55ch;
+  }
+
+  .faq-group {
+    margin-bottom: var(--space-lg);
+  }
+
+  .faq-group h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--cloud);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--cloud);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 0;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    list-style: none;
+    transition: color 0.2s;
+  }
+
+  .faq-item summary:hover {
+    color: var(--teal);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--stone);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding-bottom: 1.25rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--stone);
+    max-width: 60ch;
+  }
+
+  .faq-answer a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .faq-answer a:hover {
+    color: var(--teal-muted);
+  }
+
+  .faq-cta {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--cloud);
+  }
+
+  .faq-cta p {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin: 0 auto 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+  }
+</style>

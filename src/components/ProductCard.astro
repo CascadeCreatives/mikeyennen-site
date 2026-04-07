@@ -6,10 +6,11 @@ interface Props {
   category?: string;
   href?: string;
   soldOut?: boolean;
-  objectPosition?: string; // e.g. "center top", "center 20%"
+  badge?: string; // e.g. "New", "Popular", "One of a Kind"
+  objectPosition?: string;
 }
 
-const { title, price, image, category, href = '#', soldOut = false, objectPosition = 'center' } = Astro.props;
+const { title, price, image, category, href = '#', soldOut = false, badge, objectPosition = 'center' } = Astro.props;
 ---
 
 <a href={href} class="product-card">
@@ -22,6 +23,7 @@ const { title, price, image, category, href = '#', soldOut = false, objectPositi
       loading="lazy"
     />
     {soldOut && <span class="product-card__badge">Sold</span>}
+    {badge && !soldOut && <span class="product-card__badge product-card__badge--accent">{badge}</span>}
   </div>
   <div class="product-card__info">
     {category && <span class="label">{category}</span>}
@@ -70,6 +72,10 @@ const { title, price, image, category, href = '#', soldOut = false, objectPositi
     background: var(--charcoal);
     color: var(--white);
     padding: 0.3rem 0.7rem;
+  }
+
+  .product-card__badge--accent {
+    background: var(--teal);
   }
 
   .product-card__info {

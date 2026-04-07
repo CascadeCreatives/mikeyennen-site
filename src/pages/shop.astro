@@ -19,6 +19,15 @@ const positionMap: Record<string, string> = {
   'mountain-ridge': 'center center',
   'tradition':      'center center',
 };
+
+// Badges for select products
+const badgeMap: Record<string, string> = {
+  'ravens-dark-blue-hr': 'New',
+  'kraken': 'Popular',
+  'sasquatch-green': 'Popular',
+  'ravens-teal-wood': 'One of a Kind',
+  'octopus-painting': 'One of a Kind',
+};
 ---
 
 <BaseLayout
@@ -40,11 +49,22 @@ const positionMap: Record<string, string> = {
     </div>
   </section>
 
+  <!-- Sticky filter tabs -->
+  <nav class="shop-filters" id="shopFilters">
+    <div class="container">
+      <div class="filter-tabs">
+        <a href="#originals" class="filter-tab">Originals</a>
+        <a href="#prints" class="filter-tab">Prints</a>
+        <a href="#apparel" class="filter-tab">T-Shirts</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- ORIGINALS -->
   <section class="section" id="originals">
     <div class="container">
       <h2>Originals</h2>
-      <p style="margin-bottom: 2.5rem;">One-of-a-kind pieces. Charcoal, ink, and woodcut on paper and panel.</p>
+      <p style="margin-bottom: 2.5rem;">One-of-a-kind pieces — charcoal, ink, and woodcut on paper and panel. Signed by the artist. Once they're gone, they're gone.</p>
       <div class="grid-3">
         {originals.map((product: any) => {
           const orig = product.formats.find((f: any) => f.type === 'original');
@@ -56,6 +76,7 @@ const positionMap: Record<string, string> = {
               category={product.medium}
               href={`/shop/${product.slug}`}
               soldOut={!orig.available}
+              badge={badgeMap[product.slug]}
               objectPosition={positionMap[product.slug] || 'center'}
             />
           );
@@ -79,6 +100,7 @@ const positionMap: Record<string, string> = {
               image={`${product.image}-card.jpg`}
               category={product.color || 'Print'}
               href={`/shop/${product.slug}`}
+              badge={badgeMap[product.slug]}
               objectPosition={positionMap[product.slug] || 'center'}
             />
           );
@@ -102,6 +124,7 @@ const positionMap: Record<string, string> = {
               image={`${product.image}-card.jpg`}
               category="Unisex"
               href={`/shop/${product.slug}`}
+              badge={badgeMap[product.slug]}
               objectPosition={positionMap[product.slug] || 'center'}
             />
           );
@@ -157,4 +180,69 @@ const positionMap: Record<string, string> = {
     color: var(--fog);
     margin-top: 1rem;
   }
+
+  /* Sticky filter tabs */
+  .shop-filters {
+    position: sticky;
+    top: 72px;
+    z-index: 100;
+    background: rgba(248, 247, 245, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cloud);
+    padding: 0;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0;
+  }
+
+  .filter-tab {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .filter-tab:hover {
+    color: var(--charcoal);
+  }
+
+  .filter-tab.active {
+    color: var(--charcoal);
+    border-bottom-color: var(--teal);
+  }
+
+  @media (max-width: 768px) {
+    .filter-tab {
+      padding: 0.75rem 1rem;
+      font-size: 0.65rem;
+    }
+  }
 </style>
+
+<script>
+  // Highlight active filter tab based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const tabs = document.querySelectorAll('.filter-tab');
+
+  function updateActiveTab() {
+    let current = '';
+    sections.forEach((section) => {
+      const top = section.getBoundingClientRect().top;
+      if (top < 200) current = section.id;
+    });
+    tabs.forEach((tab) => {
+      const href = tab.getAttribute('href') || '';
+      tab.classList.toggle('active', href === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveTab, { passive: true });
+  updateActiveTab();
+</script>
