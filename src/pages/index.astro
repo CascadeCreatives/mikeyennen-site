@@ -39,7 +39,7 @@ const heroImages = [
       <p class="hero__sub fade-up fade-up-d2">Original artwork, prints, and apparel rooted in the Pacific Northwest.</p>
       <div class="hero__ctas fade-up fade-up-d3">
         <a href="/shop" class="btn btn--primary">Shop the Collection</a>
-        <a href="/shop#originals" class="btn btn--outline-light">View Originals</a>
+        <a href="/shop#prints" class="btn btn--outline-light">Browse Prints</a>
       </div>
     </div>
     <div class="hero__scroll-hint"><span></span></div>
@@ -78,7 +78,7 @@ const heroImages = [
               price={product.formats.length > 1 ? `From ${lowestPrice}` : `${topFormat.price}`}
               image={`${product.image}-card.jpg`}
               category={topFormat.type === 'original' ? 'Original' : topFormat.type === 'print' ? 'Print' : 'Tee'}
-              href={`/shop`}
+              href={`/shop/${product.slug}`}
             />
           );
         })}
@@ -112,7 +112,7 @@ const heroImages = [
       <div class="process-preview__grid">
         <div class="process-step">
           <div class="process-step__num">01</div>
-          <div class="process-step__image"><img src="/art/process/block-salmon-run-card.jpg" alt="Carved woodcut block" /></div>
+          <div class="process-step__image"><img src="/art/process/block-fishing-vessel-card.jpg" alt="Carved woodcut block" /></div>
           <h4>Carving the Block</h4>
           <p>Each piece starts as a hand-carved woodcut block. Hours of cutting define every line.</p>
         </div>
@@ -143,9 +143,9 @@ const heroImages = [
         <h2>New & Noteworthy</h2>
       </div>
       <div class="grid-3">
-        <ProductCard title="Giant Pacific Octopus" price="From $34" image="/art/originals/octopus-painting-card.jpg" category="Original / Print / Tee" href="/shop" />
-        <ProductCard title="LBS — Blue I" price="From $32" image="/art/prints/lbs-blue-1-card.jpg" category="Print / Tee" href="/shop" />
-        <ProductCard title="Gravity — Rasta" price="From $32" image="/art/prints/gravity-rasta-card.jpg" category="Print / Tee" href="/shop" />
+        <ProductCard title="Giant Pacific Octopus" price="From $34" image="/art/originals/octopus-painting-card.jpg" category="Original / Print / Tee" href="/shop/octopus-painting" />
+        <ProductCard title="LBS — Blue I" price="From $32" image="/art/prints/lbs-blue-1-card.jpg" category="Print / Tee" href="/shop/lbs-blue-1" />
+        <ProductCard title="Gravity — Rasta" price="From $32" image="/art/prints/gravity-rasta-card.jpg" category="Print / Tee" href="/shop/gravity-rasta" />
       </div>
       <div class="featured-products__cta">
         <a href="/shop" class="btn btn--outline">Browse All Products</a>
@@ -203,7 +203,7 @@ const heroImages = [
   .featured-collection__scroll :global(.product-card__price) { color: var(--fog); }
 
   .about-preview__grid { align-items: center; gap: var(--space-lg); }
-  .about-preview__photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; }
+  .about-preview__photo { width: 100%; object-fit: cover; object-position: center; }
   .about-preview__text { display: flex; flex-direction: column; gap: 1rem; }
   .about-preview__text .btn--ghost { align-self: flex-start; margin-top: 0.5rem; }
 
