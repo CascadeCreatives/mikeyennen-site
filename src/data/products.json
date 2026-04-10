@@ -14,63 +14,28 @@
         "price": 680,
         "available": false,
         "detail": "One of a kind. Woodcut on cedar panel.",
-        "soldOutReason": "Pending inventory — check back soon"
+        "soldOutReason": "Pending inventory \u2014 check back soon"
       },
       {
         "type": "print",
         "price": 48,
         "available": false,
-        "detail": "Archival giclée on Enhanced Matte. 12×16\".",
+        "detail": "Archival gicl\u00e9e on Enhanced Matte. 12\u00d716\".",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
-        "pod": true
-      }
-    ]
-  },
-  {
-    "slug": "ice-cave",
-    "title": "Ice Cave",
-    "medium": "Charcoal on Paper",
-    "description": "A lone figure silhouetted at the mouth of a glacial cave. Deep contrast charcoal drawing.",
-    "color": "Black / White",
-    "image": "/art/originals/ice-cave",
-    "featured": true,
-    "hero": false,
-    "formats": [
-      {
-        "type": "original",
-        "price": 520,
-        "available": false,
-        "detail": "Framed charcoal on paper.",
-        "soldOutReason": "Pending inventory — check back soon"
-      },
-      {
-        "type": "print",
-        "price": 45,
-        "available": false,
-        "detail": "Archival giclée. 12×16\".",
-        "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
-      },
-      {
-        "type": "poster",
-        "price": 38,
-        "available": true,
-        "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -82,7 +47,7 @@
     "description": "Giant octopus engulfing a sailing vessel amid crashing waves. Compass rose and swirling seas.",
     "color": "Blue / Black",
     "image": "/art/prints/kraken",
-    "featured": true,
+    "featured": false,
     "hero": false,
     "formats": [
       {
@@ -91,32 +56,32 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "mountain-treeline-teal",
-    "title": "Mountain Treeline — Teal",
+    "title": "Mountain Treeline \u2014 Teal",
     "medium": "Woodcut Print on Paper",
     "description": "Sweeping mountain landscape with dense forest and rolling clouds. Two-color hand-pulled print.",
     "color": "Teal / Black",
     "image": "/art/prints/mountain-treeline-teal",
-    "featured": true,
+    "featured": false,
     "hero": false,
     "formats": [
       {
@@ -125,27 +90,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "sasquatch-green",
-    "title": "Sasquatch — Forest Green",
+    "title": "Sasquatch \u2014 Forest Green",
     "medium": "Woodcut Print on Paper",
     "description": "Sasquatch portrait with forest lake and waterfall backdrop. Multi-color green print.",
     "color": "Green / Black",
@@ -159,27 +124,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "sasquatch-neon",
-    "title": "Sasquatch — Neon",
+    "title": "Sasquatch \u2014 Neon",
     "medium": "Woodcut Print on Paper",
     "description": "Sasquatch portrait. Full neon green colorway.",
     "color": "Neon Green",
@@ -193,21 +158,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "sasquatch-ochre",
-    "title": "Sasquatch — Ochre",
+    "title": "Sasquatch \u2014 Ochre",
     "medium": "Woodcut Print on Paper",
     "description": "Sasquatch portrait. Warm ochre and gold tones.",
     "color": "Ochre / Gold",
@@ -221,21 +186,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "sasquatch-tan",
-    "title": "Sasquatch — Natural",
+    "title": "Sasquatch \u2014 Natural",
     "medium": "Woodcut Print on Paper",
     "description": "Sasquatch portrait. Natural tan and brown tones on black.",
     "color": "Tan / Black",
@@ -249,21 +214,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "sasquatch-silver",
-    "title": "Sasquatch — Silver",
+    "title": "Sasquatch \u2014 Silver",
     "medium": "Woodcut Print on Paper",
     "description": "Sasquatch portrait. Cool silver and grey tones.",
     "color": "Silver / Grey",
@@ -277,21 +242,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "ravens-blue-print",
-    "title": "Moonlight Ravens — Blue",
+    "title": "Moonlight Ravens \u2014 Blue",
     "medium": "Woodcut Print on Paper",
     "description": "Two ravens in bare branches. Hand-pulled print in sky blue and black.",
     "color": "Blue / Black",
@@ -305,32 +270,32 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "baker-trees-bw",
-    "title": "Baker Trees — Black",
+    "title": "Baker Trees \u2014 Black",
     "medium": "Woodcut Print on Paper",
     "description": "Snow-heavy conifers on Mount Baker. Clean single-color print. Edition of 10.",
     "color": "Black",
     "image": "/art/prints/baker-trees-bw",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "formats": [
       {
@@ -339,27 +304,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Ed. of 10.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "baker-trees-grey",
-    "title": "Baker Trees — Grey",
+    "title": "Baker Trees \u2014 Grey",
     "medium": "Woodcut Print on Paper",
     "description": "Snow-heavy conifers on Mount Baker. Two-color grey variant. Edition of 10.",
     "color": "Grey / Black",
@@ -373,14 +338,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Ed. of 10.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -392,7 +357,7 @@
     "description": "Mt. Shuksan rising above snow-covered conifers. Hand-pulled woodcut print in a limited edition of 8.",
     "color": "Black / White",
     "image": "/art/prints/mt-shuksan-trees",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "formats": [
       {
@@ -401,20 +366,20 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition of 8.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -435,27 +400,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Ed. of 22.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "tree-blue",
-    "title": "Tree — Blue",
+    "title": "Tree \u2014 Blue",
     "medium": "Woodcut Print on Paper",
     "description": "Bold graphic tree trunk splitting into angular branches. Blue sky with bark texture detail.",
     "color": "Blue / Brown",
@@ -469,20 +434,20 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -503,27 +468,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "waterfall-teal",
-    "title": "Waterfall — Teal",
+    "title": "Waterfall \u2014 Teal",
     "medium": "Woodcut Print on Paper",
     "description": "Cascading waterfall over a rocky cliff face. Two-color print.",
     "color": "Teal / Grey",
@@ -537,14 +502,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -556,7 +521,7 @@
     "description": "Rocky island coastline rising from crosshatched ocean. San Juan Islands.",
     "color": "Black",
     "image": "/art/prints/island-rocks",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "formats": [
       {
@@ -565,14 +530,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -593,27 +558,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "ravenwood-yellow",
-    "title": "Ravenwood — Yellow",
+    "title": "Ravenwood \u2014 Yellow",
     "medium": "Woodcut Print on Paper",
     "description": "Fallen driftwood tree with perched ravens. Bright yellow background variant.",
     "color": "Yellow / Black",
@@ -627,14 +592,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -655,97 +620,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
-        "pod": true
-      }
-    ]
-  },
-  {
-    "slug": "water-reflections",
-    "title": "Water Reflections",
-    "medium": "Charcoal on Paper",
-    "description": "Abstract study of light on moving water. Dense, fluid charcoal work.",
-    "color": "Black / White",
-    "image": "/art/originals/water-reflections",
-    "featured": false,
-    "hero": false,
-    "formats": [
-      {
-        "type": "original",
-        "price": 440,
-        "available": false,
-        "detail": "Framed charcoal on paper.",
-        "soldOutReason": "Pending inventory — check back soon"
-      },
-      {
-        "type": "print",
-        "price": 38,
-        "available": false,
-        "detail": "Archival giclée. 11×14\".",
-        "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
-      },
-      {
-        "type": "poster",
-        "price": 38,
-        "available": true,
-        "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
-        "pod": true
-      }
-    ]
-  },
-  {
-    "slug": "mountain-ridge",
-    "title": "Mountain Ridge",
-    "medium": "Charcoal on Paper",
-    "description": "Abstract vertical composition of flowing alpine ridgelines.",
-    "color": "Black / White",
-    "image": "/art/originals/mountain-ridge",
-    "featured": false,
-    "hero": false,
-    "formats": [
-      {
-        "type": "original",
-        "price": 480,
-        "available": false,
-        "detail": "Framed charcoal on paper.",
-        "soldOutReason": "Pending inventory — check back soon"
-      },
-      {
-        "type": "print",
-        "price": 38,
-        "available": false,
-        "detail": "Archival giclée. 11×17\".",
-        "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
-      },
-      {
-        "type": "poster",
-        "price": 38,
-        "available": true,
-        "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "bird-abstract-teal",
-    "title": "Bird & Current — Teal",
+    "title": "Bird & Current \u2014 Teal",
     "medium": "Woodcut Print on Paper",
     "description": "Bird among swirling abstract water currents. Multi-color print with teal and grey.",
     "color": "Teal / Grey",
@@ -759,21 +654,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "mountain-flow-blue",
-    "title": "Mountain Flow — Blue",
+    "title": "Mountain Flow \u2014 Blue",
     "medium": "Woodcut Print on Paper",
     "description": "Abstract flowing ridgelines descending to a deep blue edge. Organic linework.",
     "color": "Blue",
@@ -787,14 +682,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -815,73 +710,32 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
-        "pod": true
-      }
-    ]
-  },
-  {
-    "slug": "octopus-painting",
-    "title": "Giant Pacific Octopus",
-    "medium": "Acrylic on Panel",
-    "description": "Panoramic painted octopus with swirling tentacles. Orange, blue, and black on panel.",
-    "color": "Orange / Blue / Black",
-    "image": "/art/originals/octopus-painting",
-    "featured": false,
-    "hero": true,
-    "formats": [
-      {
-        "type": "original",
-        "price": 950,
-        "available": false,
-        "detail": "One of a kind. Acrylic on panel. Panoramic format.",
-        "soldOutReason": "Pending inventory — check back soon"
-      },
-      {
-        "type": "print",
-        "price": 55,
-        "available": false,
-        "detail": "Archival giclée. 12×36\" panoramic.",
-        "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
-      },
-      {
-        "type": "tee",
-        "price": 34,
-        "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
-      },
-      {
-        "type": "poster",
-        "price": 38,
-        "available": true,
-        "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "lbs-blue-1",
-    "title": "LBS — Blue I",
+    "title": "LBS \u2014 Blue I",
     "medium": "Woodcut Print on Paper",
     "description": "Winding mountain road through snowy peaks with raven in the foreground. Multi-color blue and teal.",
     "color": "Blue / Teal",
     "image": "/art/prints/lbs-blue-1",
-    "featured": true,
+    "featured": false,
     "hero": false,
     "formats": [
       {
@@ -890,27 +744,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "gravity-rasta",
-    "title": "Gravity — Rasta",
+    "title": "Gravity \u2014 Rasta",
     "medium": "Woodcut Print on Paper",
     "description": "Mountain landscape with swirling canopy and trees. Rainbow gradient colorway. Edition of 20.",
     "color": "Green / Yellow / Red",
@@ -924,32 +778,32 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Ed. of 20.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "ravens-dark-blue-hr",
-    "title": "Moonlight Ravens — Dark Blue",
+    "title": "Moonlight Ravens \u2014 Dark Blue",
     "medium": "Woodcut Print on Paper",
     "description": "Two ravens in bare winter branches beneath a full moon. Deep blue colorway.",
     "color": "Dark Blue / Black",
     "image": "/art/prints/ravens-dark-blue-hr",
-    "featured": false,
+    "featured": true,
     "hero": false,
     "formats": [
       {
@@ -958,27 +812,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 32,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "ravens-dark-green",
-    "title": "Moonlight Ravens — Dark Green",
+    "title": "Moonlight Ravens \u2014 Dark Green",
     "medium": "Woodcut Print on Paper",
     "description": "Two ravens in bare winter branches beneath a full moon. Forest green colorway.",
     "color": "Dark Green / Black",
@@ -992,21 +846,21 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "ravens-light-teal",
-    "title": "Moonlight Ravens — Light Teal",
+    "title": "Moonlight Ravens \u2014 Light Teal",
     "medium": "Woodcut Print on Paper",
     "description": "Two ravens in bare winter branches beneath a full moon. Light teal colorway.",
     "color": "Teal / Black",
@@ -1020,14 +874,14 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
@@ -1048,27 +902,27 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "tee",
         "price": 28,
         "available": true,
-        "detail": "DTG on Bella+Canvas 3001. S–2XL."
+        "detail": "DTG on Bella+Canvas 3001. S\u20132XL."
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
       }
     ]
   },
   {
     "slug": "waterfall-bw",
-    "title": "Waterfall — Black",
+    "title": "Waterfall \u2014 Black",
     "medium": "Woodcut Print on Paper",
     "description": "Cascading waterfall over rocky cliff face. Single-color black print.",
     "color": "Black",
@@ -1082,15 +936,75 @@
         "available": false,
         "detail": "Hand-pulled woodcut print. Limited edition.",
         "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition — sold out"
+        "soldOutReason": "Limited edition \u2014 sold out"
       },
       {
         "type": "poster",
         "price": 38,
         "available": true,
         "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12×16\". Printed & shipped by Printful.",
+        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
+      }
+    ]
+  },
+  {
+    "slug": "jones-peaks",
+    "title": "Jones Peaks",
+    "description": "Rolling mountain peaks beneath towering clouds. Layers of ridges recede into the distance.",
+    "medium": "Woodcut Print on Paper",
+    "image": "/art/prints/jones-peaks",
+    "featured": true,
+    "formats": [
+      {
+        "type": "print",
+        "label": "Hand-Pulled Edition",
+        "price": 120,
+        "available": false,
+        "detail": "Hand-pulled woodcut, signed and numbered. Edition of AP."
+      },
+      {
+        "type": "poster",
+        "label": "Poster Print",
+        "price": 38,
+        "available": true,
+        "detail": "Enhanced Matte, 12\u00d716\", printed on demand."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "Bella+Canvas 3001, DTG printed."
+      }
+    ]
+  },
+  {
+    "slug": "jones-approach",
+    "title": "Jones Approach",
+    "description": "Mountain rising above treeline with reflection in still water below. Rain lines fill the sky.",
+    "medium": "Woodcut Print on Paper",
+    "image": "/art/prints/jones-approach",
+    "featured": false,
+    "formats": [
+      {
+        "type": "print",
+        "label": "Hand-Pulled Edition",
+        "price": 120,
+        "available": false,
+        "detail": "Hand-pulled woodcut, signed and numbered. Edition of 8."
+      },
+      {
+        "type": "poster",
+        "label": "Poster Print",
+        "price": 38,
+        "available": true,
+        "detail": "Enhanced Matte, 12\u00d716\", printed on demand."
+      },
+      {
+        "type": "tee",
+        "price": 32,
+        "available": true,
+        "detail": "Bella+Canvas 3001, DTG printed."
       }
     ]
   }
