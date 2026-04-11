@@ -467,7 +467,14 @@ function fmtLabel(type: string, f?: any): string {
   .price-display { margin-bottom: 1rem; }
   .price-amount { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--charcoal); }
 
-  .buy-btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 1.1rem 2rem; }
+  .buy-btn {
+    width: 100%; justify-content: center; font-size: 0.85rem; padding: 1.1rem 2rem;
+    transition: background 0.3s ease, transform 0.15s ease;
+  }
+  .buy-btn:active { transform: scale(0.98); }
+  .buy-btn.btn--added {
+    background: #5a8f8b !important; pointer-events: none;
+  }
 
   .trust-line {
     display: flex; align-items: center; justify-content: center; gap: 0.75rem;
@@ -644,11 +651,13 @@ function fmtLabel(type: string, f?: any): string {
     }
 
     // Brief feedback
-    buyBtn.textContent = '✓ Added';
+    buyBtn.classList.add('btn--added');
+    buyBtn.textContent = '✓ Added to Cart';
     setTimeout(() => {
+      buyBtn.classList.remove('btn--added');
       const activePrice = document.querySelector('.format-btn.active')?.getAttribute('data-price') || '';
       buyBtn.innerHTML = 'Add to Cart — <span id="buyPrice">$' + activePrice + '</span>';
-    }, 1200);
+    }, 1500);
   });
   // Collected notice — switch to available format
   document.querySelectorAll('.collected-format-btn').forEach((btn) => {

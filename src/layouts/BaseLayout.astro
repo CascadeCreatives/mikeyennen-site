@@ -222,10 +222,22 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
     .cart-count {
       position: absolute; top: -6px; right: -8px;
       font-family: var(--font-body); font-size: 0.55rem; font-weight: 700;
-      background: var(--teal); color: var(--white);
+      background: #5a8f8b; color: #f8f7f5;
       width: 16px; height: 16px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+    .cart-count.pop { transform: scale(1.4); }
+    @keyframes cartItemIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cartItemOut {
+      from { opacity: 1; transform: translateX(0); max-height: 200px; }
+      to { opacity: 0; transform: translateX(40px); max-height: 0; padding: 0; margin: 0; overflow: hidden; }
+    }
+    .cart-item { animation: cartItemIn 0.25s ease both; }
+    .cart-item--removing { animation: cartItemOut 0.3s ease both; pointer-events: none; }
 
     .nav-toggle {
       display: none;
@@ -509,8 +521,18 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
       openCart();
     }
     function removeFromCart(key: string) {
-      const cart = getCart().filter((c: any) => c.key !== key);
-      saveCart(cart);
+      // Animate out, then remove
+      const itemEl = document.querySelector(`[data-cart-key="${key}"]`)?.closest('.cart-item');
+      if (itemEl) {
+        itemEl.classList.add('cart-item--removing');
+        setTimeout(() => {
+          const cart = getCart().filter((c: any) => c.key !== key);
+          saveCart(cart);
+        }, 280);
+      } else {
+        const cart = getCart().filter((c: any) => c.key !== key);
+        saveCart(cart);
+      }
     }
     function clearCart() { saveCart([]); }
 
@@ -522,8 +544,14 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
       const headerCountEl = document.getElementById('cartHeaderCount');
       const continueEl = document.getElementById('cartContinue');
       if (countEl) {
+        const prev = parseInt(countEl.textContent || '0');
         countEl.textContent = String(count);
         countEl.style.display = count > 0 ? 'flex' : 'none';
+        // Pop animation on change
+        if (count !== prev && count > 0) {
+          countEl.classList.add('pop');
+          setTimeout(() => countEl.classList.remove('pop'), 250);
+        }
       }
       if (headerCountEl) {
         headerCountEl.textContent = count > 0 ? `(${count})` : '';
