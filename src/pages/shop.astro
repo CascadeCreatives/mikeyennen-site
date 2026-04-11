@@ -3,23 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
 
-const posters = products.filter((p: any) => p.formats.some((f: any) => f.type === 'poster'));
-const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === 'tee'));
-
-// Products that need specific object-position to look good at 4/5 crop
 const positionMap: Record<string, string> = {
   'gravity-rasta':  'center top',
   'lbs-blue-1':     'center top',
-  'lbs-blue-2':     'center top',
-  'lbs-blue-3':     'center top',
-  'lbs-blue-4':     'center top',
-  'lbs-blue-5':     'center top',
   'waterfall-bw':   'center top',
-  'mountain-ridge': 'center center',
-  'tradition':      'center center',
 };
 
-// Badges for select products
 const badgeMap: Record<string, string> = {
   'ravens-dark-blue-hr': 'Popular',
   'kraken': 'Popular',
@@ -40,65 +29,31 @@ const badgeMap: Record<string, string> = {
 
   <section class="page-hero">
     <div class="page-hero__bg">
-      <!-- sasquatch-green: 900x620 (1.45:1) — bold landscape, great color -->
       <img src="/art/prints/sasquatch-green-hero.jpg" alt="Sasquatch — Mikey Ennen print" class="page-hero__img" />
     </div>
     <div class="page-hero__overlay"></div>
     <div class="container page-hero__content">
       <span class="label">Shop</span>
       <h1>The Collection</h1>
-      <p>Poster prints and wearable art — printed on demand. Every piece rooted in Pacific Northwest nature.</p>
+      <p>Woodcut prints and wearable art — printed on demand. Every piece rooted in Pacific Northwest nature.</p>
     </div>
   </section>
 
-  <!-- Sticky filter tabs -->
-  <nav class="shop-filters" id="shopFilters">
+  <section class="section" id="collection">
     <div class="container">
-      <div class="filter-tabs">
-        <a href="#prints" class="filter-tab">Poster Prints</a>
-        <a href="#apparel" class="filter-tab">T-Shirts</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- POSTER PRINTS -->
-  <section class="section" id="prints" style="background: var(--cloud);">
-    <div class="container">
-      <h2>Poster Prints</h2>
-      <p style="margin-bottom: 2.5rem;">Museum-quality giclée on Enhanced Matte paper. 12×16". Printed on demand and shipped directly to you.</p>
       <div class="grid-3">
-        {posters.map((product: any) => {
-          const poster = product.formats.find((f: any) => f.type === 'poster');
+        {products.map((product: any) => {
+          const avail = product.formats.filter((f: any) => f.available);
+          const lowestPrice = avail.length ? Math.min(...avail.map((f: any) => f.price)) : 0;
+          const priceLabel = avail.length > 1 ? `From $${lowestPrice}` : `$${lowestPrice}`;
+          const colorCount = product.colorways?.length || 0;
+          const subtitle = colorCount > 1 ? `${colorCount} colorways` : 'Woodcut Print';
           return (
             <ProductCard
               title={product.title}
-              price={`$${poster.price}`}
+              price={priceLabel}
               image={`${product.image}-card.jpg`}
-              category={product.color || 'Poster'}
-              href={`/shop/${product.slug}`}
-              badge={badgeMap[product.slug]}
-              objectPosition={positionMap[product.slug] || 'center'}
-            />
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <!-- APPAREL -->
-  <section class="section" id="apparel">
-    <div class="container">
-      <h2>T-Shirts</h2>
-      <p style="margin-bottom: 2.5rem;">Premium blanks. Mike's artwork printed direct-to-garment. S–2XL.</p>
-      <div class="grid-3">
-        {tees.map((product: any) => {
-          const tee = product.formats.find((f: any) => f.type === 'tee');
-          return (
-            <ProductCard
-              title={`${product.title} Tee`}
-              price={`$${tee.price}`}
-              image={`${product.image}-card.jpg`}
-              category="Unisex"
+              category={subtitle}
               href={`/shop/${product.slug}`}
               badge={badgeMap[product.slug]}
               objectPosition={positionMap[product.slug] || 'center'}
@@ -120,105 +75,10 @@ const badgeMap: Record<string, string> = {
     align-items: flex-end;
     overflow: hidden;
   }
-
-  .page-hero__bg {
-    position: absolute;
-    inset: 0;
-    background: var(--black);
-  }
-
-  .page-hero__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    opacity: 0.45;
-  }
-
-  .page-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 60%);
-  }
-
-  .page-hero__content {
-    position: relative;
-    z-index: 2;
-    color: var(--white);
-  }
-
-  .page-hero__content h1 {
-    margin-top: 0.5rem;
-    font-weight: 300;
-  }
-
-  .page-hero__content p {
-    color: var(--fog);
-    margin-top: 1rem;
-  }
-
-  /* Sticky filter tabs */
-  .shop-filters {
-    position: sticky;
-    top: 72px;
-    z-index: 100;
-    background: rgba(248, 247, 245, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--cloud);
-    padding: 0;
-  }
-
-  .filter-tabs {
-    display: flex;
-    gap: 0;
-  }
-
-  .filter-tab {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--stone);
-    padding: 1rem 1.5rem;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
-
-  .filter-tab:hover {
-    color: var(--charcoal);
-  }
-
-  .filter-tab.active {
-    color: var(--charcoal);
-    border-bottom-color: var(--teal);
-  }
-
-  @media (max-width: 768px) {
-    .filter-tab {
-      padding: 0.75rem 1rem;
-      font-size: 0.65rem;
-    }
-  }
+  .page-hero__bg { position: absolute; inset: 0; background: var(--black); }
+  .page-hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.45; }
+  .page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 60%); }
+  .page-hero__content { position: relative; z-index: 2; color: var(--white); }
+  .page-hero__content h1 { margin-top: 0.5rem; font-weight: 300; }
+  .page-hero__content p { color: var(--fog); margin-top: 1rem; }
 </style>
-
-<script>
-  // Highlight active filter tab based on scroll position
-  const sections = document.querySelectorAll('section[id]');
-  const tabs = document.querySelectorAll('.filter-tab');
-
-  function updateActiveTab() {
-    let current = '';
-    sections.forEach((section) => {
-      const top = section.getBoundingClientRect().top;
-      if (top < 200) current = section.id;
-    });
-    tabs.forEach((tab) => {
-      const href = tab.getAttribute('href') || '';
-      tab.classList.toggle('active', href === '#' + current);
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveTab, { passive: true });
-  updateActiveTab();
-</script>

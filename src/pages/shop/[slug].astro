@@ -184,9 +184,9 @@ function fmtLabel(type: string, f?: any): string {
           <span class="price-amount" id="priceAmount">{defaultFormat.available ? `$${defaultFormat.price}` : ''}</span>
         </div>
 
-        <!-- Buy button (available formats) -->
-        <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug} style={defaultFormat.available ? '' : 'display:none'}>
-          Buy Now — <span id="buyPrice">${defaultFormat.price}</span>
+        <!-- Add to Cart button (available formats) -->
+        <button class="btn btn--primary buy-btn" id="buyBtn" data-slug={product.slug} data-title={product.title} data-image={`${product.image}-card.jpg`} style={defaultFormat.available ? '' : 'display:none'}>
+          Add to Cart — <span id="buyPrice">${defaultFormat.price}</span>
         </button>
 
         <!-- Collected notice (unavailable formats) -->
@@ -607,17 +607,21 @@ function fmtLabel(type: string, f?: any): string {
     });
   });
 
-  // Buy button
-  buyBtn?.addEventListener('click', async () => {
+  // Add to Cart button
+  buyBtn?.addEventListener('click', () => {
     const activeFormat = document.querySelector('.format-btn.active');
     if (!activeFormat) return;
     if (activeFormat.getAttribute('data-available') !== 'true') return;
 
     const slug = buyBtn.dataset.slug;
-    const format = activeFormat.getAttribute('data-format');
+    const title = buyBtn.dataset.title;
+    const image = buyBtn.dataset.image;
+    const format = activeFormat.getAttribute('data-format') || 'poster';
+    const price = parseInt(activeFormat.getAttribute('data-price') || '0');
 
-    // Map poster to the checkout format name
-    const checkoutFormat = format === 'poster' ? 'poster' : format;
+    // Format label
+    const formatLabels: Record<string, string> = { poster: 'Poster Print', tee: 'T-Shirt', print: 'Hand-Pulled', original: 'Original' };
+    const formatLabel = formatLabels[format] || format;
 
     let size: string | null = null;
     if (format === 'tee') {
@@ -629,30 +633,22 @@ function fmtLabel(type: string, f?: any): string {
       size = activeSize.getAttribute('data-size');
     }
 
-    buyBtn.disabled = true;
-    buyBtn.textContent = 'Processing…';
-    overlay?.classList.add('visible');
+    // Get active colorway
+    const activeColorway = document.querySelector('.colorway-btn.active');
+    const colorway = activeColorway?.getAttribute('data-colorway-name') || null;
 
-    try {
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, format: checkoutFormat, quantity: 1, ...(size ? { size } : {}) }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        throw new Error(data.error || 'Failed to create checkout session');
-      }
-    } catch (err) {
-      console.error('Checkout error:', err);
-      alert('Something went wrong. Please try again.');
-      buyBtn.disabled = false;
-      const activePrice = document.querySelector('.format-btn.active')?.getAttribute('data-price') || '';
-      buyBtn.innerHTML = 'Buy Now — <span id="buyPrice">$' + activePrice + '</span>';
-      overlay?.classList.remove('visible');
+    // Add to cart via global cart system
+    const cart = (window as any).ennenCart;
+    if (cart) {
+      cart.addToCart({ slug, title, image, format, price, formatLabel, size, colorway });
     }
+
+    // Brief feedback
+    buyBtn.textContent = '✓ Added';
+    setTimeout(() => {
+      const activePrice = document.querySelector('.format-btn.active')?.getAttribute('data-price') || '';
+      buyBtn.innerHTML = 'Add to Cart — <span id="buyPrice">$' + activePrice + '</span>';
+    }, 1200);
   });
   // Collected notice — switch to available format
   document.querySelectorAll('.collected-format-btn').forEach((btn) => {
