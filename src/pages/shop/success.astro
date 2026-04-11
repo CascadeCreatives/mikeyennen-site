@@ -8,13 +8,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="container container--narrow success-content">
       <span class="label">Order Confirmed</span>
       <h1>Thank You</h1>
-      <p>Your order has been placed. You'll receive a confirmation email from Stripe shortly.</p>
-      <p>Originals ship within 5–7 business days. Prints and tees are printed on demand and typically arrive in 7–12 days.</p>
-      <a href="/shop" class="btn btn--primary" style="margin-top: 2rem;">Back to Shop</a>
+      <p>Your piece is on its way. You'll receive a confirmation email from Stripe shortly.</p>
+      <p>Prints and tees are made to order and typically arrive in 7–12 days.</p>
+      <a href="/shop" class="btn btn--primary" style="margin-top: 2rem;">Continue Shopping</a>
     </div>
   </section>
 
 </BaseLayout>
+
+<script>
+  // Clear cart after successful checkout
+  localStorage.removeItem('ennen_cart');
+  const countEl = document.getElementById('cartCount');
+  if (countEl) countEl.style.display = 'none';
+  const headerCountEl = document.getElementById('cartHeaderCount');
+  if (headerCountEl) headerCountEl.textContent = '';
+</script>
 
 <style>
   .success-page {
