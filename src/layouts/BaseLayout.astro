@@ -8,13 +8,13 @@ interface Props {
 
 const {
   title = 'Mikey Ennen — Artist & Designer',
-  description = 'Original artwork, prints, and apparel rooted in Pacific Northwest nature.',
+  description = 'Woodcut prints and wearable art rooted in Pacific Northwest nature.',
   ogImage = '/og-image.jpg',
   ogType = 'website',
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const siteUrl = 'https://mikeyennen-site.vercel.app';
+const siteUrl = 'https://ennendesign.com';
 const canonicalUrl = `${siteUrl}${currentPath}`;
 const ogImageUrl = `${siteUrl}${ogImage}`;
 ---
