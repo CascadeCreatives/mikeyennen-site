@@ -67,6 +67,15 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
         <a href="/contact" class:list={[{ active: currentPath === '/contact' }]}>Contact</a>
       </nav>
 
+      <a href="/shop" class="cart-btn" aria-label="Cart" id="cartBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </a>
+
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span>
       </button>
@@ -172,6 +181,19 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
       right: 0;
       height: 1.5px;
       background: var(--teal);
+    }
+
+    .cart-btn {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      color: var(--charcoal); transition: color 0.2s; margin-left: 0.5rem;
+    }
+    .cart-btn:hover { color: var(--teal); }
+    .cart-count {
+      position: absolute; top: -6px; right: -8px;
+      font-family: var(--font-body); font-size: 0.55rem; font-weight: 700;
+      background: var(--teal); color: var(--white);
+      width: 16px; height: 16px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
     }
 
     .nav-toggle {

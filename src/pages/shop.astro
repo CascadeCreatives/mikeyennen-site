@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
 
-const originals = products.filter((p: any) => p.formats.some((f: any) => f.type === 'original'));
 const posters = products.filter((p: any) => p.formats.some((f: any) => f.type === 'poster'));
 const tees = products.filter((p: any) => p.formats.some((f: any) => f.type === 'tee'));
 
@@ -22,14 +21,14 @@ const positionMap: Record<string, string> = {
 
 // Badges for select products
 const badgeMap: Record<string, string> = {
-  'ravens-dark-blue-hr': 'New',
+  'ravens-dark-blue-hr': 'Popular',
   'kraken': 'Popular',
   'sasquatch-green': 'Popular',
-  'ravens-teal-wood': 'One of a Kind',
   'baker-trees-bw': 'Bestseller',
   'mt-shuksan-trees': 'Bestseller',
-  'island-rocks': 'Popular',
+  'northwest-islands': 'New',
   'jones-peaks': 'New',
+  'baker-willows': 'New',
 };
 ---
 
@@ -56,37 +55,11 @@ const badgeMap: Record<string, string> = {
   <nav class="shop-filters" id="shopFilters">
     <div class="container">
       <div class="filter-tabs">
-        <a href="#originals" class="filter-tab">Originals</a>
         <a href="#prints" class="filter-tab">Poster Prints</a>
         <a href="#apparel" class="filter-tab">T-Shirts</a>
       </div>
     </div>
   </nav>
-
-  <!-- ORIGINALS -->
-  <section class="section" id="originals">
-    <div class="container">
-      <h2>Collected Originals</h2>
-      <p style="margin-bottom: 2.5rem;">These one-of-a-kind works have found their permanent homes. Each print in the shop carries the same hand-carved detail. <a href="/contact" style="color: var(--teal); text-decoration: underline;">Inquire about commissions</a>.</p>
-      <div class="grid-3">
-        {originals.map((product: any) => {
-          const orig = product.formats.find((f: any) => f.type === 'original');
-          return (
-            <ProductCard
-              title={product.title}
-              price={`$${orig.price}`}
-              image={`${product.image}-card.jpg`}
-              category={product.medium}
-              href={`/shop/${product.slug}`}
-              soldOut={!orig.available}
-              badge={badgeMap[product.slug]}
-              objectPosition={positionMap[product.slug] || 'center'}
-            />
-          );
-        })}
-      </div>
-    </div>
-  </section>
 
   <!-- POSTER PRINTS -->
   <section class="section" id="prints" style="background: var(--cloud);">

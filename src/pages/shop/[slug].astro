@@ -11,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+const colorways = product.colorways || [];
 const allFormats = product.formats;
 const availableFormats = allFormats.filter((f: any) => f.available);
 // Priority: poster > print > original > tee (art-first, poster is the primary purchasable)
@@ -88,6 +89,25 @@ function fmtLabel(type: string, f?: any): string {
         <span class="label">{product.medium}</span>
         <h1>{product.title}</h1>
         <p class="product-description">{product.description}</p>
+
+        <!-- Colorway Picker (only if multiple colors) -->
+        {colorways.length > 1 && (
+          <div class="colorway-section">
+            <span class="field-label">Colorway</span>
+            <div class="colorway-selector" id="colorwaySelector">
+              {colorways.map((cw: any, i: number) => (
+                <button
+                  class:list={['colorway-btn', { active: i === 0 }]}
+                  data-colorway-image={`${cw.image}-card.jpg`}
+                  data-colorway-name={cw.name}
+                >
+                  <img src={`${cw.image}-thumb.jpg`} alt={cw.name} class="colorway-thumb" />
+                  <span class="colorway-name">{cw.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <!-- Format Selector -->
         <div class="format-section">
@@ -366,6 +386,18 @@ function fmtLabel(type: string, f?: any): string {
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--fog); margin-bottom: 0.6rem;
   }
 
+  .colorway-section { margin-bottom: 1.25rem; }
+  .colorway-selector { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .colorway-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    padding: 0.4rem; background: transparent; border: 2px solid var(--mist);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .colorway-btn:hover { border-color: var(--stone); }
+  .colorway-btn.active { border-color: var(--charcoal); }
+  .colorway-thumb { width: 48px; height: 48px; object-fit: cover; }
+  .colorway-name { font-family: var(--font-body); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone); }
+
   .format-section { margin-bottom: 1.25rem; }
   .format-selector { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .format-btn {
@@ -483,6 +515,18 @@ function fmtLabel(type: string, f?: any): string {
 </style>
 
 <script>
+  // Colorway selector — swap product image
+  const colorwayBtns = document.querySelectorAll('.colorway-btn');
+  const productImg = document.querySelector('.product-image img') as HTMLImageElement;
+  colorwayBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      colorwayBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const newSrc = btn.getAttribute('data-colorway-image');
+      if (productImg && newSrc) productImg.src = newSrc;
+    });
+  });
+
   const formatBtns = document.querySelectorAll('.format-btn');
   const sizePicker = document.getElementById('sizePicker');
   const sizeError = document.getElementById('sizeError');
