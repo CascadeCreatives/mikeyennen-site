@@ -19,6 +19,9 @@ const badgeMap: Record<string, string> = {
   'jones-peaks': 'New',
   'baker-willows': 'New',
 };
+
+const featured = products.filter((p: any) => p.featured);
+const rest = products.filter((p: any) => !p.featured);
 ---
 
 <BaseLayout
@@ -39,10 +42,20 @@ const badgeMap: Record<string, string> = {
     </div>
   </section>
 
-  <section class="section" id="collection">
+  <!-- Carved block texture strip -->
+  <div class="shop-texture-strip">
+    <img src="/art/process/block-mountain-treeline-hero.jpg" alt="" class="shop-texture-strip__img" />
+  </div>
+
+  <!-- FEATURED -->
+  <section class="section shop-section" id="featured">
     <div class="container">
+      <div class="section-header">
+        <span class="label">Featured</span>
+        <h2>Mikey's Picks</h2>
+      </div>
       <div class="grid-3">
-        {products.map((product: any) => {
+        {featured.map((product: any) => {
           const avail = product.formats.filter((f: any) => f.available);
           const lowestPrice = avail.length ? Math.min(...avail.map((f: any) => f.price)) : 0;
           const priceLabel = avail.length > 1 ? `From $${lowestPrice}` : `$${lowestPrice}`;
@@ -64,6 +77,53 @@ const badgeMap: Record<string, string> = {
     </div>
   </section>
 
+  <!-- ALL WORK -->
+  <section class="section shop-section shop-section--alt" id="collection">
+    <div class="shop-section__texture">
+      <img src="/art/process/block-sailboat-hero.jpg" alt="" />
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Full Collection</span>
+        <h2>All Work</h2>
+      </div>
+      <div class="grid-3">
+        {rest.map((product: any) => {
+          const avail = product.formats.filter((f: any) => f.available);
+          const lowestPrice = avail.length ? Math.min(...avail.map((f: any) => f.price)) : 0;
+          const priceLabel = avail.length > 1 ? `From $${lowestPrice}` : `$${lowestPrice}`;
+          const colorCount = product.colorways?.length || 0;
+          const subtitle = colorCount > 1 ? `${colorCount} colorways` : 'Woodcut Print';
+          return (
+            <ProductCard
+              title={product.title}
+              price={priceLabel}
+              image={`${product.image}-card.jpg`}
+              category={subtitle}
+              href={`/shop/${product.slug}`}
+              badge={badgeMap[product.slug]}
+              objectPosition={positionMap[product.slug] || 'center'}
+            />
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMISSION CTA -->
+  <section class="section section--dark shop-cta">
+    <div class="shop-cta__bg">
+      <img src="/art/process/block-viking-ship-hero.jpg" alt="" class="shop-cta__bg-img" />
+    </div>
+    <div class="shop-cta__overlay"></div>
+    <div class="container shop-cta__inner">
+      <span class="label">Custom Work</span>
+      <h2>Commission a Piece</h2>
+      <p>Want something made just for you? Mikey takes on select commissions — custom woodcut prints, collaborations, and licensing.</p>
+      <a href="/contact" class="btn btn--primary" style="background: var(--teal);">Get in Touch</a>
+    </div>
+  </section>
+
 </BaseLayout>
 
 <style>
@@ -81,4 +141,48 @@ const badgeMap: Record<string, string> = {
   .page-hero__content { position: relative; z-index: 2; color: var(--white); }
   .page-hero__content h1 { margin-top: 0.5rem; font-weight: 300; }
   .page-hero__content p { color: var(--fog); margin-top: 1rem; }
+
+  .shop-texture-strip {
+    height: 6px; overflow: hidden; background: var(--charcoal);
+  }
+  .shop-texture-strip__img {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.4;
+  }
+
+  .shop-section { position: relative; }
+  .shop-section .section-header { margin-bottom: var(--space-lg); }
+  .shop-section .section-header h2 { margin-top: 0.5rem; }
+
+  .shop-section--alt {
+    position: relative; overflow: hidden;
+    background: #ededed;
+  }
+  .shop-section__texture {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .shop-section__texture img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.03; filter: contrast(1.5);
+  }
+  .shop-section--alt .container { position: relative; z-index: 2; }
+
+  .shop-cta {
+    position: relative; overflow: hidden;
+    padding: var(--space-xl) 0;
+  }
+  .shop-cta__bg { position: absolute; inset: 0; }
+  .shop-cta__bg-img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.12; filter: contrast(1.3);
+  }
+  .shop-cta__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(30,30,30,0.78) 100%);
+  }
+  .shop-cta__inner {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 560px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .shop-cta__inner p { text-align: center; margin-bottom: 0.5rem; }
 </style>
