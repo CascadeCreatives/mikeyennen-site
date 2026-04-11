@@ -373,34 +373,6 @@
     ]
   },
   {
-    "slug": "bird-abstract-teal",
-    "title": "Bird & Current \u2014 Teal",
-    "medium": "Woodcut Print on Paper",
-    "description": "Bird among swirling abstract water currents. Multi-color print with teal and grey.",
-    "color": "Teal / Grey",
-    "image": "/art/prints/bird-abstract-teal",
-    "featured": false,
-    "hero": false,
-    "formats": [
-      {
-        "type": "print",
-        "price": 55,
-        "available": false,
-        "detail": "Hand-pulled woodcut print. Limited edition.",
-        "label": "Hand-Pulled Edition",
-        "soldOutReason": "Limited edition \u2014 sold out"
-      },
-      {
-        "type": "poster",
-        "price": 38,
-        "available": true,
-        "label": "Poster Print",
-        "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
-        "pod": true
-      }
-    ]
-  },
-  {
     "slug": "fishing-vessel",
     "title": "Viking",
     "medium": "Woodcut Print on Paper",
@@ -465,6 +437,18 @@
         "label": "Poster Print",
         "detail": "Enhanced Matte Paper. 12\u00d716\". Printed & shipped by Printful.",
         "pod": true
+      }
+    ],
+    "colorways": [
+      {
+        "id": "lbs-blue-1",
+        "name": "Blue",
+        "image": "/art/prints/lbs-blue-1"
+      },
+      {
+        "id": "bird-abstract-teal",
+        "name": "Teal",
+        "image": "/art/prints/bird-abstract-teal"
       }
     ]
   },
