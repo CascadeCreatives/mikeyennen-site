@@ -643,11 +643,12 @@ function fmtLabel(type: string, f?: any): string {
     // Get active colorway
     const activeColorway = document.querySelector('.colorway-btn.active');
     const colorway = activeColorway?.getAttribute('data-colorway-name') || null;
+    const colorwayImage = activeColorway?.getAttribute('data-colorway-image') || image;
 
     // Add to cart via global cart system
     const cart = (window as any).ennenCart;
     if (cart) {
-      cart.addToCart({ slug, title, image, format, price, formatLabel, size, colorway });
+      cart.addToCart({ slug, title, image: colorwayImage, format, price, formatLabel, size, colorway });
     }
 
     // Brief feedback
